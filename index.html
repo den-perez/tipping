@@ -235,7 +235,9 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
 #rides .seal{top:24px}
 @media (max-width:760px){.seal{display:none}}
 /* drips: the section above pours into this one */
-.pour{position:absolute;top:0;left:0;right:0;height:0;z-index:2;pointer-events:none}
+.pour{position:absolute;top:0;left:0;right:0;height:0;z-index:0;pointer-events:none}
+.chapter > :is(.wrap,.strip),.legacy > .wrap{position:relative;z-index:1}
+#rides .pour{z-index:2}
 .pour i{position:absolute;top:0;width:var(--w);height:var(--h);background:var(--prev);border-radius:0 0 999px 999px;transform-origin:top}
 .pour i::after{content:"";position:absolute;left:50%;bottom:calc(var(--w) * -.35);width:calc(var(--w) * 1.4);aspect-ratio:1;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:inherit;translate:-50% 0}
 #coffee{--prev:var(--cactus)}

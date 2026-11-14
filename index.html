@@ -296,6 +296,13 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
   .nav.open ul a:hover,.nav.open ul a:focus-visible{color:var(--cactus);text-decoration:none}
   .nav.open ul li:nth-child(odd) a{color:var(--yolk)}
 }
+/* reel pop-up */
+.reel-pop{margin:auto;padding:0;border:0;background:transparent;max-width:none;max-height:none;overflow:visible;color:var(--crema)}
+.reel-pop::backdrop{background:rgba(26,13,7,.85);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.reel-pop iframe{display:block;width:var(--pw,min(420px,92vw));height:min(82svh,820px);border:0;border-radius:14px;background:#fff}
+.reel-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.reel-bar a{font-size:.9rem;font-weight:600}
+.reel-bar button{background:var(--cactus);color:var(--espresso);border:0;border-radius:999px;padding:.55rem 1.1rem;font:800 .95rem/1 var(--body);cursor:pointer}
 /* sideways rows: hint + arrows + edge fades */
 .strip-nav{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:32px}
 .strip-nav + .strip{padding-top:16px}
@@ -579,14 +586,14 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
 <section data-n="06" class="chapter videos" id="videos" aria-labelledby="videos-title">
   <div class="pour" aria-hidden="true"><i style="left:11%;--w:22px;--h:72px"></i><i style="left:40%;--w:10px;--h:87px"></i><i style="left:43%;--w:18px;--h:49px"></i><i style="left:61%;--w:10px;--h:91px"></i><i style="left:77%;--w:10px;--h:55px"></i><i style="left:86%;--w:18px;--h:44px"></i><i style="left:91%;--w:14px;--h:78px"></i><i style="left:93%;--w:22px;--h:91px"></i></div>
   <span class="seal" aria-hidden="true"><small>The Tipping Point</small><b>Reels</b><small>Est. 2006 HTX</small></span>
-  <div class="wrap"><h2 class="display" id="videos-title">On camera</h2><p class="lede">Reels from David and the people around him. Tap one to watch it on Instagram.</p></div>
-  <div class="strip video-strip" tabindex="0" aria-label="Instagram reels, open on Instagram">
-    <figure class="reel land"><a href="https://www.instagram.com/reel/DaOvRH6RBA6/" target="_blank" rel="noopener" aria-label="Watch on Instagram: David tells some of his stories"><img src="img/reel-DaOvRH6RBA6.jpg" alt="David in a green jersey and bucket hat, seated at home" loading="lazy"><span class="play" aria-hidden="true"></span></a><figcaption>David tells some of his stories. <span class="credit">Film by @_hvnson_</span></figcaption></figure>
-    <figure class="reel land"><a href="https://www.instagram.com/reel/Dfpm4iShT2S/" target="_blank" rel="noopener" aria-label="Watch on Instagram: Cactus Flower recap"><img src="img/reel-Dfpm4iShT2S.jpg" alt="Slow Drip Tour logo painted on a wall" loading="lazy"><span class="play" aria-hidden="true"></span></a><figcaption>Cactus Flower recap. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
-    <figure class="reel port"><a href="https://www.instagram.com/reel/DcuZZ7usd_A/" target="_blank" rel="noopener" aria-label="Watch on Instagram: Hoy Se Bebe in detail"><img src="img/reel-DcuZZ7usd_A.jpg" alt="Hoy Se Bebe caps stacked in front of a Corona Extra sign" loading="lazy"><span class="play" aria-hidden="true"></span></a><figcaption>Hoy Se Bebe in detail. <span class="credit">@wilderliving_</span></figcaption></figure>
-    <figure class="reel port"><a href="https://www.instagram.com/reel/DOMqmKAERQ_/" target="_blank" rel="noopener" aria-label="Watch on Instagram: The green monster on the dirt"><img src="img/reel-DOMqmKAERQ_.jpg" alt="The green GX parked under trees" loading="lazy"><span class="play" aria-hidden="true"></span></a><figcaption>The green monster on the dirt. <span class="credit">@david__tipping</span></figcaption></figure>
-    <figure class="reel land"><a href="https://www.instagram.com/reel/C93Jt5APSQt/" target="_blank" rel="noopener" aria-label="Watch on Instagram: The Merc on No Company Motors"><img src="img/reel-C93Jt5APSQt.jpg" alt="David seated beside The Merc in front of a mural" loading="lazy"><span class="play" aria-hidden="true"></span></a><figcaption>The Merc on No Company Motors. <span class="credit">@nocompany.motors</span></figcaption></figure>
-    <figure class="reel port"><a href="https://www.instagram.com/reel/DchZT1-QFvy/" target="_blank" rel="noopener" aria-label="Watch on Instagram: Coffee Diaries: what makes a good espresso"><img src="img/reel-DchZT1-QFvy.jpg" alt="Two men talking espresso at a café table outside" loading="lazy"><span class="play" aria-hidden="true"></span></a><figcaption>Coffee Diaries: what makes a good espresso. <span class="credit">@layman_rob</span></figcaption></figure>
+  <div class="wrap"><h2 class="display" id="videos-title">On camera</h2><p class="lede">Reels from David and the people around him. Tap one to play it here.</p></div>
+  <div class="strip video-strip" tabindex="0" aria-label="Instagram reels">
+    <figure class="reel land"><a href="https://www.instagram.com/reel/DaOvRH6RBA6/" target="_blank" rel="noopener" aria-label="Play reel: David tells some of his stories"><img src="img/reel-DaOvRH6RBA6.jpg" alt="David in a green jersey and bucket hat, seated at home" loading="lazy"><span class="play" aria-hidden="true"></span></a><figcaption>David tells some of his stories. <span class="credit">Film by @_hvnson_</span></figcaption></figure>
+    <figure class="reel land"><a href="https://www.instagram.com/reel/Dfpm4iShT2S/" target="_blank" rel="noopener" aria-label="Play reel: Cactus Flower recap"><img src="img/reel-Dfpm4iShT2S.jpg" alt="Slow Drip Tour logo painted on a wall" loading="lazy"><span class="play" aria-hidden="true"></span></a><figcaption>Cactus Flower recap. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
+    <figure class="reel port"><a href="https://www.instagram.com/reel/DcuZZ7usd_A/" target="_blank" rel="noopener" aria-label="Play reel: Hoy Se Bebe in detail"><img src="img/reel-DcuZZ7usd_A.jpg" alt="Hoy Se Bebe caps stacked in front of a Corona Extra sign" loading="lazy"><span class="play" aria-hidden="true"></span></a><figcaption>Hoy Se Bebe in detail. <span class="credit">@wilderliving_</span></figcaption></figure>
+    <figure class="reel port"><a href="https://www.instagram.com/reel/DOMqmKAERQ_/" target="_blank" rel="noopener" aria-label="Play reel: The green monster on the dirt"><img src="img/reel-DOMqmKAERQ_.jpg" alt="The green GX parked under trees" loading="lazy"><span class="play" aria-hidden="true"></span></a><figcaption>The green monster on the dirt. <span class="credit">@david__tipping</span></figcaption></figure>
+    <figure class="reel land"><a href="https://www.instagram.com/reel/C93Jt5APSQt/" target="_blank" rel="noopener" aria-label="Play reel: The Merc on No Company Motors"><img src="img/reel-C93Jt5APSQt.jpg" alt="David seated beside The Merc in front of a mural" loading="lazy"><span class="play" aria-hidden="true"></span></a><figcaption>The Merc on No Company Motors. <span class="credit">@nocompany.motors</span></figcaption></figure>
+    <figure class="reel port"><a href="https://www.instagram.com/reel/DchZT1-QFvy/" target="_blank" rel="noopener" aria-label="Play reel: Coffee Diaries: what makes a good espresso"><img src="img/reel-DchZT1-QFvy.jpg" alt="Two men talking espresso at a café table outside" loading="lazy"><span class="play" aria-hidden="true"></span></a><figcaption>Coffee Diaries: what makes a good espresso. <span class="credit">@layman_rob</span></figcaption></figure>
   </div>
 </section>
 
@@ -707,6 +714,27 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
     b.addEventListener('click', pick);
     if (matchMedia('(hover:hover)').matches) b.addEventListener('mouseenter', pick);
   });
+
+  // reels play in a pop-up instead of leaving the page
+  const pop = document.createElement('dialog');
+  pop.className = 'reel-pop';
+  pop.innerHTML = '<div class="reel-bar"><a target="_blank" rel="noopener">Open on Instagram</a><button type="button" autofocus>Close</button></div><iframe allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+  document.body.append(pop);
+  const popFrame = pop.querySelector('iframe'), popLink = pop.querySelector('.reel-bar a');
+  pop.querySelector('button').addEventListener('click', () => pop.close());
+  pop.addEventListener('click', e => { if (e.target === pop) pop.close(); });
+  pop.addEventListener('close', () => { popFrame.src = 'about:blank'; document.body.style.overflow = ''; });
+  document.querySelectorAll('.reel a').forEach(a => a.addEventListener('click', e => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button || !pop.showModal) return;
+    e.preventDefault();
+    const code = a.href.split('/reel/')[1].replace(/\/.*$/, '');
+    popFrame.src = 'https://www.instagram.com/reel/' + code + '/embed/';
+    popFrame.title = a.getAttribute('aria-label').replace('Play reel', 'Instagram reel');
+    popLink.href = a.href;
+    pop.style.setProperty('--pw', a.closest('.land') ? 'min(560px,92vw)' : 'min(420px,92vw)');
+    pop.showModal();
+    document.body.style.overflow = 'hidden';
+  }));
 
   // phone menu
   const nav = document.querySelector('.nav'), menuBtn = nav.querySelector('.menu-btn');

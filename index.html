@@ -296,6 +296,21 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
   .nav.open ul a:hover,.nav.open ul a:focus-visible{color:var(--cactus);text-decoration:none}
   .nav.open ul li:nth-child(odd) a{color:var(--yolk)}
 }
+/* promo film band */
+.film-band{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(40px,6vw,88px);margin-bottom:clamp(24px,4vw,56px)}
+.film-band::before{content:"";position:absolute;inset:-60px;z-index:-1;background:url(img/reel-DfamXPcxvjQ.jpg) center/cover;filter:blur(30px) brightness(.5)}
+.film{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(28px,5vw,72px)}
+.film-player{height:min(80svh,780px);display:grid;place-items:center}
+.film-cover{all:unset;box-sizing:border-box;position:relative;display:block;height:100%;aspect-ratio:9/16;max-width:88vw;border-radius:14px;overflow:hidden;border:4px solid var(--cactus);rotate:-1.5deg;box-shadow:0 24px 60px rgba(0,0,0,.5);cursor:pointer;transition:rotate .4s cubic-bezier(.2,.8,.2,1)}
+.film-cover img{width:100%;height:100%;object-fit:cover}
+.film-cover:hover,.film-cover:focus-visible{rotate:0deg}
+.film-cover:focus-visible{outline:3px solid var(--crema);outline-offset:4px}
+.film-player iframe{display:block;width:min(440px,88vw);height:100%;border:0;border-radius:14px;background:#fff;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.film-text{max-width:34ch}
+.film-text h3{font-size:clamp(2.6rem,5.4vw,4.8rem);color:var(--cactus);margin-bottom:14px}
+.film-text p{font-size:1.1rem}
+.film-text .credit{margin-top:6px}
+@media (max-width:700px){.film-player{height:min(72svh,640px)}.film-text{text-align:center}}
 /* reel pop-up */
 .reel-pop{margin:auto;padding:0;border:0;background:transparent;max-width:none;max-height:none;overflow:visible;color:var(--crema)}
 .reel-pop::backdrop{background:rgba(26,13,7,.85);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
@@ -371,10 +386,22 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
       </dl>
     </div>
   </div>
+  <div class="film-band">
+    <div class="wrap film">
+      <div class="film-player">
+        <button class="film-cover" type="button" aria-label="Play The Final Vision, the Cactus Flower promo film"><img src="img/reel-DfamXPcxvjQ.jpg" alt="" width="900" height="1600"><span class="play" aria-hidden="true"></span></button>
+      </div>
+      <div class="film-text">
+        <h3 class="display">The Final Vision</h3>
+        <p>The promo film, out the day before the drop. “2006 til’ now the love we have for Houston never has dulled.”</p>
+        <p class="credit">@thetippingpoint_coffee</p>
+        <a class="watch" href="https://www.instagram.com/reel/DfamXPcxvjQ/" target="_blank" rel="noopener">Watch on Instagram</a>
+      </div>
+    </div>
+  </div>
   <p class="drag-hint">Swipe through the drop</p>
   <div class="track-outer">
-    <div class="track" tabindex="0" aria-label="Cactus Flower promo film and photos">
-      <figure class="panel tall reel"><a href="https://www.instagram.com/reel/DfamXPcxvjQ/" target="_blank" rel="noopener" aria-label="Play reel: The Final Vision, the Cactus Flower promo film"><img src="img/reel-DfamXPcxvjQ.jpg" alt="The Tipping Point logo cut out over a desert sunset scene" width="900" height="1600"><span class="play" aria-hidden="true"></span></a><figcaption>“The Final Vision.” The promo film, out the day before the drop. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
+    <div class="track" tabindex="0" aria-label="Cactus Flower photos">
       <figure class="panel tall"><img src="img/cactus-window.jpg" alt="The Cactus Flower Adistar and its burlap bag in an adobe window over desert mountains" loading="lazy" width="1281" height="1600"><figcaption>“Here is the beginning of our 20 year celebration.” <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
       <figure class="panel"><img src="img/shoe-cracked.jpg" alt="Pink and green Adistar on cracked desert earth" loading="lazy" width="1080" height="1152"><figcaption>Pink, cactus green and a yolk-yellow sole. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
       <figure class="panel tall"><img src="img/shoe-rock.jpg" alt="The Adistar pair resting on a desert rock at dusk" loading="lazy" width="900" height="1600"><figcaption>Out in the Chihuahuan Desert. <span class="credit">via @thetippingpoint_coffee</span></figcaption></figure>
@@ -715,6 +742,27 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
     b.addEventListener('click', pick);
     if (matchMedia('(hover:hover)').matches) b.addEventListener('mouseenter', pick);
   });
+
+  // promo film: one click swaps in the player; scrolling away stops it
+  const filmPlayer = document.querySelector('.film-player');
+  if (filmPlayer) {
+    const cover = filmPlayer.querySelector('.film-cover');
+    const refresh = () => window.ScrollTrigger && ScrollTrigger.refresh();
+    cover.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = 'https://www.instagram.com/reel/DfamXPcxvjQ/embed/';
+      f.title = 'Instagram reel: The Final Vision, the Cactus Flower promo film';
+      f.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+      f.allowFullscreen = true;
+      cover.replaceWith(f);
+      f.focus();
+      refresh();
+    });
+    if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => {
+      const f = filmPlayer.querySelector('iframe');
+      if (!e.isIntersecting && f) { f.src = 'about:blank'; f.replaceWith(cover); refresh(); }
+    }, { threshold: 0 }).observe(filmPlayer);
+  }
 
   // reels play in a pop-up instead of leaving the page
   const pop = document.createElement('dialog');

@@ -274,6 +274,22 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
 #store .timeline li{border-color:var(--accent)}
 #store .timeline strong{color:var(--fg)}
 
+/* sideways rows: hint + arrows + edge fades */
+.strip-nav{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:32px}
+.strip-nav + .strip{padding-top:16px}
+.strip-hint{font-stretch:87%;font-weight:600;font-size:.95rem}
+.nudge{display:inline-block;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}
+.strip-btns{display:flex;gap:10px}
+.strip-btns button{width:46px;height:46px;border-radius:50%;border:2px solid currentColor;background:transparent;color:inherit;font:700 1.15rem/1 var(--body);cursor:pointer;transition:transform .2s,background .2s}
+.strip-btns button:hover:not(:disabled){transform:scale(1.08);background:color-mix(in srgb,currentColor 16%,transparent)}
+.strip-btns button:disabled{opacity:.3;cursor:default}
+.has-strip-nav .drag-hint,.js-pin .track-nav{display:none}
+.strip,.track{--fl:0px;--fr:72px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 var(--fl),#000 calc(100% - var(--fr)),transparent);mask-image:linear-gradient(90deg,transparent,#000 var(--fl),#000 calc(100% - var(--fr)),transparent)}
+.strip.scrolled,.track.scrolled{--fl:48px}
+.strip.at-end,.track.at-end{--fr:0px}
+.js-pin .track{-webkit-mask-image:none;mask-image:none}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .drip{height:calc(var(--h)*.82)}
@@ -669,6 +685,40 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
     b.addEventListener('click', pick);
     if (matchMedia('(hover:hover)').matches) b.addEventListener('mouseenter', pick);
   });
+
+  // sideways rows: hint, arrow buttons, edge fades and a one-time nudge
+  const hover = matchMedia('(hover:hover)').matches;
+  document.querySelectorAll('.strip, .track').forEach(st => {
+    const nav = document.createElement('div');
+    nav.className = 'wrap strip-nav' + (st.classList.contains('track') ? ' track-nav' : '');
+    nav.innerHTML = '<span class="strip-hint">' + (hover ? 'Scroll sideways or use the arrows' : 'Swipe for more') + ' <span class="nudge" aria-hidden="true">→</span></span>'
+      + '<span class="strip-btns"><button type="button" aria-label="Show previous">←</button><button type="button" aria-label="Show next">→</button></span>';
+    (st.closest('.track-outer') || st).before(nav);
+    const [prev, next] = nav.querySelectorAll('button');
+    const go = dir => st.scrollBy({ left: dir * st.clientWidth * .8, behavior: reduce ? 'auto' : 'smooth' });
+    prev.addEventListener('click', () => go(-1));
+    next.addEventListener('click', () => go(1));
+    const update = () => {
+      const max = st.scrollWidth - st.clientWidth - 4;
+      prev.disabled = st.scrollLeft <= 4;
+      next.disabled = st.scrollLeft >= max;
+      st.classList.toggle('scrolled', st.scrollLeft > 4);
+      st.classList.toggle('at-end', st.scrollLeft >= max);
+    };
+    st.addEventListener('scroll', update, { passive: true });
+    addEventListener('resize', update);
+    update();
+    if (reduce || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting || st.scrollLeft > 4 || getComputedStyle(nav).display === 'none') return;
+      io.disconnect();
+      st.style.scrollSnapType = 'none';
+      st.scrollBy({ left: 110, behavior: 'smooth' });
+      setTimeout(() => { st.scrollBy({ left: -110, behavior: 'smooth' }); setTimeout(() => { st.style.scrollSnapType = ''; }, 700); }, 750);
+    }, { threshold: .6 });
+    io.observe(st);
+  });
+  document.documentElement.classList.add('has-strip-nav');
 
   if (reduce || !window.gsap) return; // content is fully visible without the motion below
   gsap.registerPlugin(ScrollTrigger);

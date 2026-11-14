@@ -249,6 +249,9 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
 .chapter > :is(.wrap,.strip),.legacy > .wrap{position:relative;z-index:1}
 #rides .pour{z-index:2}
 @media (max-width:700px){#rides .pour i{height:calc(var(--h) * .3)}}
+/* drips (max ~112px) must end above the title */
+.chapter,.legacy{padding-top:clamp(128px,10vw,140px)}
+.seal{top:clamp(128px,10vw,140px)}
 .pour i{position:absolute;top:0;width:var(--w);height:var(--h);background:var(--prev);border-radius:0 0 999px 999px;transform-origin:top}
 .pour i::after{content:"";position:absolute;left:50%;bottom:calc(var(--w) * -.35);width:calc(var(--w) * 1.4);aspect-ratio:1;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:inherit;translate:-50% 0}
 #coffee{--prev:var(--cactus)}

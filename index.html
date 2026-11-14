@@ -185,6 +185,9 @@ blockquote footer{margin-top:.6rem}
 .drink-shot{position:sticky;top:90px}
 .drink-shot img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px}
 .drink-shot figcaption{margin-top:8px}
+.history{list-style:none;padding-top:40px;padding-bottom:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(180px,100%),1fr));gap:28px clamp(16px,2vw,28px)}
+.history li{border-top:2px solid var(--yolk);padding-top:10px;font-size:.98rem;max-width:36ch}
+.history strong{display:block;font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1.1;color:var(--yolk);margin-bottom:4px}
 .timeline{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px);counter-reset:stop}
 .timeline li{counter-increment:stop;position:relative;padding-top:56px;border-top:2px solid var(--yolk)}
 .timeline li::before{content:counter(stop);position:absolute;top:10px;left:0;font-family:var(--display);font-size:2rem;line-height:1;color:var(--yolk)}
@@ -413,6 +416,8 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
       <li><figure><img src="img/cap-lolife.jpg" alt="Lo-Life 4 Hat Range fitted cap" loading="lazy" width="1050" height="1400"><figcaption><strong>Lo-Life 4 Hat Range</strong>Polo-inspired pack<span class="credit">@david__tipping</span></figcaption></figure></li>
       <li><figure><img src="img/cap-doom.jpg" alt="DOOM fitted cap" loading="lazy" width="1050" height="1400"><figcaption><strong>DOOM</strong>Doomsday Pack, with @robbboomin<span class="credit">@whatafitted</span></figcaption></figure></li>
       <li><figure><img src="img/cap-cattle.jpg" alt="Cattle Pack 2025 fitted cap" loading="lazy" width="787" height="1400"><figcaption><strong>Cattle Pack 2025</strong>Hat Club<span class="credit">@david__tipping</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-southside.jpg" alt="Black Astros fitted cap with a gold anniversary patch" loading="lazy" width="1400" height="1400"><figcaption><strong>Southside Astros</strong>With @southsidehtx<span class="credit">@thetippingpointstore</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-15th.jpg" alt="Olive fitted cap with a cream T logo" loading="lazy" width="1400" height="1400"><figcaption><strong>15th Anniversary</strong>The Tipping Point, 2021<span class="credit">@thetippingpointstore</span></figcaption></figure></li>
     </ul>
   </div>
 </section>
@@ -478,6 +483,20 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
 
 <section class="chapter" id="store" aria-labelledby="store-title">
   <div class="wrap"><h2 class="display" id="store-title">The Store</h2><p class="lede">“Creatively representing Houston since 2007.” Candles, hoodies, caps, pop-ups and parties, from the @thetippingpointstore archive.</p></div>
+  <ol class="wrap history" aria-label="Store history">
+    <li><strong>2006</strong>The Tipping Point is established.</li>
+    <li><strong>2007</strong>Grand opening on Main St.</li>
+    <li><strong>2008</strong>Hosts Sneaker Pimps.</li>
+    <li><strong>2010</strong>Introduces its own apparel.</li>
+    <li><strong>2013</strong>Hosts the Just Don All-Star pop-up installation.</li>
+    <li><strong>2014</strong>Curates a stage at Free Press Summer Fest.</li>
+    <li><strong>2015</strong>Shows Anthony Bourdain around H-Town for the <em>Parts Unknown</em> Houston episode, and moves to Travis St.</li>
+    <li><strong>2016</strong>Hosts the Kendrick Lamar DAMN pop-up.</li>
+    <li><strong>2018</strong>Roundhouse Vintage opens inside the store, and the coffee program starts.</li>
+    <li><strong>2020</strong>Named one of the top 10 U.S. stores that helped define streetwear.</li>
+    <li><strong>2021</strong>Fifteen years: a capsule, two releases and a cookout.</li>
+    <li><strong>2026</strong>Twenty years, celebrated with adidas.</li>
+  </ol>
   <div class="strip" tabindex="0" aria-label="Store drops by year">
     <figure class="sq"><img src="img/store-santo.jpg" alt="Hand holding a black Santo candle" loading="lazy"><figcaption><strong class="yr">2018</strong> The “Santo” candle with @west97th. Leather, amber and cypress.</figcaption></figure>
     <figure class="sq"><img src="img/store-doublecup.jpg" alt="Lit purple candle poured into a white double foam cup" loading="lazy"><figcaption><strong class="yr">2019</strong> The Double Cup candle with @detroitwick, poured by hand.</figcaption></figure>
@@ -485,14 +504,14 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
     <figure class="sq"><img src="img/store-kicks-coffee.jpg" alt="Navy Kicks and Coffee shirt laid in ferns" loading="lazy"><figcaption><strong class="yr">2019</strong> Merch for the first Kicks &amp; Coffee.</figcaption></figure>
     <figure class="land"><img src="img/store-dont-sleep.jpg" alt="Group posing on steps in Don’t Sleep gear" loading="lazy"><figcaption><strong class="yr">2019</strong> Don’t Sleep, with @roundhouse_vintage and @preneurstudios.</figcaption></figure>
     <figure class="sq"><img src="img/store-holy-grails.jpg" alt="Crowd inside the shop under a neon star" loading="lazy"><figcaption><strong class="yr">2020</strong> “Holy Grails” vintage night with @roundhouse_vintage.</figcaption></figure>
-    <figure class="sq"><img src="img/store-unity.jpg" alt="Black Unity tee with a gold raised fist" loading="lazy"><figcaption><strong class="yr">2020</strong> The Unity shirt.</figcaption></figure>
+    <figure class="sq"><img src="img/store-unity.jpg" alt="Back of the Unity tee, the word unity printed in several languages" loading="lazy"><figcaption><strong class="yr">2020</strong> The Unity shirt, “unity” in eight languages.</figcaption></figure>
     <figure class="land"><img src="img/store-houston-hoodie.jpg" alt="Green Houston hoodie on Champion reverse weave" loading="lazy"><figcaption><strong class="yr">2020</strong> The Houston Love hoodie, on Champion reverse weave.</figcaption></figure>
     <figure class="sq"><img src="img/store-floraculture.jpg" alt="Two people with a tote bag among plants" loading="lazy"><figcaption><strong class="yr">2021</strong> Pop-up with @thefloraculture.</figcaption></figure>
     <figure class="sq"><img src="img/store-15th-tees.jpg" alt="Two women in matching Tipping Point anniversary tees" loading="lazy"><figcaption><strong class="yr">2021</strong> 15 years: a cookout and a run of drops.</figcaption></figure>
     <figure class="sq"><img src="img/store-hdk-chain.jpg" alt="Dog wearing a gold Cuban link collar" loading="lazy"><figcaption><strong class="yr">2021</strong> Dog chains for the 15th, with @hdk_lux_dog_chains.</figcaption></figure>
     <figure class="port"><img src="img/store-downsoul.jpg" alt="Person in a Down Soul tee leaning on a classic car" loading="lazy"><figcaption><strong class="yr">2021</strong> Down Soul tees with @doemanxdyna for the coffee shop opening.</figcaption></figure>
     <figure class="land"><img src="img/store-hatclub-line.jpg" alt="Long line of people outside the shop with lowriders parked out front" loading="lazy"><figcaption><strong class="yr">2023</strong> “From HTX Live!” Hatclub weekend. The city showed out.</figcaption></figure>
-    <figure class="sq"><img src="img/store-proper-2.jpg" alt="Astros cap under a neon Tipping Point sign" loading="lazy"><figcaption><strong class="yr">2023</strong> The 2.0 cap with @properhtx.</figcaption></figure>
+    <figure class="sq"><img src="img/store-proper-2.jpg" alt="Stack of cream and red Astros caps on a table" loading="lazy"><figcaption><strong class="yr">2023</strong> The 2.0 cap with @properhtx.</figcaption></figure>
     <figure class="sq"><img src="img/store-proper-3.jpg" alt="Grey cap with a cartoon patch and Astros logo" loading="lazy"><figcaption><strong class="yr">2024</strong> The 3.0, with the classic pin.</figcaption></figure>
   </div>
 </section>
@@ -601,7 +620,7 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
   gsap.set(wipe, { clipPath: 'inset(100% 0% 0% 0% round 12px)' });
   ScrollTrigger.batch(wipe, { start: 'top 90%', once: true, onEnter: b => gsap.to(b, { clipPath: 'inset(0% 0% 0% 0% round 12px)', duration: 1.1, ease: 'expo.inOut', stagger: .1 }) });
   // Caps, food shots and reels drop in like they're being hung on the wall
-  const rise = '.wall li, .strip figure, .es, .timeline li, .drinks li';
+  const rise = '.wall li, .strip figure, .es, .timeline li, .history li, .drinks li';
   gsap.set(rise, { opacity: 0, y: 70 });
   ScrollTrigger.batch(rise, { start: 'top 92%', once: true, onEnter: b => gsap.fromTo(b, { rotate: () => gsap.utils.random(-6, 6) }, { opacity: 1, y: 0, rotate: 0, duration: 1, ease: 'expo.out', stagger: .07 }) });
   // "Rides" grows as the truck comes into view

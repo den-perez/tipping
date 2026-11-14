@@ -188,6 +188,7 @@ blockquote footer{margin-top:.6rem}
 .drink-shot{position:sticky;top:90px}
 .drink-shot img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px}
 .drink-shot figcaption{margin-top:8px}
+.shot-name{display:none}
 .history{list-style:none;padding-top:40px;padding-bottom:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(180px,100%),1fr));gap:28px clamp(16px,2vw,28px)}
 .history li{border-top:2px solid var(--yolk);padding-top:10px;font-size:.98rem;max-width:36ch}
 .history strong{display:block;font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1.1;color:var(--yolk);margin-bottom:4px}
@@ -204,8 +205,10 @@ blockquote footer{margin-top:.6rem}
   .bar-grid,.timeline{grid-template-columns:1fr}
   .bar-grid{gap:16px}
   .drink-shot{order:-1;top:68px;z-index:3;background:var(--espresso);padding:8px 0 10px;margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter);box-shadow:0 14px 18px -12px rgba(0,0,0,.6)}
-  .drink-shot img{aspect-ratio:auto;height:min(34svh,300px);border-radius:12px}
-  .drink-shot figcaption{margin-top:4px}
+  .drink-shot{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:end}
+  .drink-shot img{aspect-ratio:auto;height:min(30svh,260px);width:auto;max-width:60vw;border-radius:12px}
+  .drink-shot figcaption{margin-top:0}
+  .shot-name{display:block;font-family:var(--display);font-weight:400;font-size:1.35rem;line-height:1.15;color:var(--yolk);margin-bottom:6px}
 }
 
 /* ---------- legacy ---------- */
@@ -421,7 +424,7 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
         <li><button type="button" data-img="img/d-oat.jpg" data-alt="Espresso pouring into an iced oat latte" data-credit="@raggedysmiles" aria-pressed="false"><strong>Oat latte</strong><span>Dairy not your thing? Proudly serving Minor Figures.</span></button></li>
         <li><button type="button" data-img="img/d-espresso.jpg" data-alt="Espresso pulling into a steel cup" data-credit="@raggedysmiles" aria-pressed="false"><strong>Espresso</strong><span>Some say it’s the best in the city. They won’t confirm or deny.</span></button></li>
       </ul>
-      <figure class="drink-shot"><img src="img/d-matcha-straw.jpg" alt="Iced matcha layered over strawberry syrup" loading="lazy" width="1050" height="1400"><figcaption class="credit">@thetippingpoint_coffee</figcaption></figure>
+      <figure class="drink-shot"><img src="img/d-matcha-straw.jpg" alt="Iced matcha layered over strawberry syrup" loading="lazy" width="1050" height="1400"><figcaption><strong class="shot-name" aria-hidden="true">Matcha, cardamom &amp; strawberry</strong><span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -691,12 +694,12 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
 
 
   // Drinks menu: pick a drink, the photo swaps
-  const shot = document.querySelector('.drink-shot img'), shotCredit = document.querySelector('.drink-shot figcaption');
+  const shot = document.querySelector('.drink-shot img'), shotCredit = document.querySelector('.drink-shot .credit'), shotName = document.querySelector('.drink-shot .shot-name');
   document.querySelectorAll('.drinks button').forEach(b => {
     const pick = () => {
       document.querySelectorAll('.drinks button').forEach(x => x.setAttribute('aria-pressed', x === b));
       if (shot.getAttribute('src') === b.dataset.img) return;
-      shot.src = b.dataset.img; shot.alt = b.dataset.alt; shotCredit.textContent = b.dataset.credit;
+      shot.src = b.dataset.img; shot.alt = b.dataset.alt; shotCredit.textContent = b.dataset.credit; shotName.textContent = b.querySelector('strong').textContent;
       if (window.gsap && !reduce) gsap.fromTo(shot, { opacity: 0, scale: 1.06, rotate: -2 }, { opacity: 1, scale: 1, rotate: 0, duration: .6, ease: 'expo.out' });
     };
     b.addEventListener('click', pick);

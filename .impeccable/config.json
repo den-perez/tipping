@@ -29,24 +29,6 @@
         ],
         "createdAt": "2026-11-14T07:30:06.139Z",
         "reason": "Claude: tape reproduces the Slow Drip Tour packaging tape from the posts; stops under prefers-reduced-motion"
-      },
-      {
-        "rule": "low-contrast",
-        "value": "text #f1dfc3 on #e8e0cf",
-        "files": [
-          "index.html"
-        ],
-        "createdAt": "2026-11-14T15:53:46.585Z",
-        "reason": "Claude: .trail-hero h2 sits on the GX photo with a text-shadow, not on the #rides stucco; rendered scan shows every text element passes AA"
-      },
-      {
-        "rule": "low-contrast",
-        "value": "text #f5a623 on #14566e",
-        "files": [
-          "index.html"
-        ],
-        "createdAt": "2026-11-14T15:53:46.585Z",
-        "reason": "Claude: yolk is only the #videos h2 display heading (3rem+), 4.0:1 passes AA large-text 3:1"
       }
     ]
   }

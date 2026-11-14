@@ -215,7 +215,37 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
 :focus-visible,.drinks button:focus-visible{outline-color:currentColor}
 .nav{mix-blend-mode:normal;color:var(--crema)}
 .nav .mark,.nav ul{background:var(--espresso);border-radius:999px;padding:.35rem .9rem}
-.chapter{border-top:0;background:var(--bg,transparent);color:var(--fg,var(--crema))}
+.chapter{border-top:0;background-color:var(--bg,transparent);background-image:var(--motif,none);color:var(--fg,var(--crema));position:relative;isolation:isolate;overflow-x:clip}
+/* film grain over every chapter */
+.chapter::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.09;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* giant outlined chapter number behind the heading */
+.chapter::before{content:attr(data-n);position:absolute;z-index:-1;top:clamp(20px,3vw,48px);left:calc(var(--gutter) - .06em);font-family:var(--display);font-size:clamp(9rem,30vw,26rem);line-height:.8;color:transparent;-webkit-text-stroke:2px var(--fg,var(--crema));opacity:.22;pointer-events:none;transform:translateY(var(--ny,0))}
+#rides::before{top:calc(min(92svh,900px) + 24px)}
+/* material per world */
+#coffee{--motif:repeating-linear-gradient(0deg,rgba(241,223,195,.035) 0 2px,transparent 2px 7px),repeating-linear-gradient(90deg,rgba(241,223,195,.035) 0 2px,transparent 2px 7px)}
+#videos{--motif:repeating-linear-gradient(90deg,rgba(0,0,0,.16) 0,rgba(255,255,255,.05) 15px,rgba(0,0,0,.16) 30px)}
+#rides{--motif:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' fill='none' stroke='%232a170e' stroke-opacity='.09' stroke-width='1.6'%3E%3Cpath d='M0 70l40 8 30-22 46 14 28-30 50 10 30-18 36 6M70 56l-6 54 24 40-8 50 30 30M144 40l10 46-20 38 30 34-4 48M194 50l12 50 34 22 20 40M88 150l50 20 46-8 40 24M0 200l42-16 30 22M184 162l10 50-14 48'/%3E%3C/svg%3E")}
+/* beer-label seal */
+.seal{position:absolute;z-index:2;top:clamp(72px,10vw,140px);right:var(--gutter);width:clamp(104px,10vw,136px);aspect-ratio:1;border-radius:50%;border:6px double var(--accent,var(--yolk));background:var(--bg,var(--espresso));color:var(--accent,var(--yolk));display:grid;place-content:center;text-align:center;gap:2px;transform:rotate(-8deg);pointer-events:none}
+.seal small{font:800 .58rem/1.1 var(--body);font-stretch:125%;letter-spacing:.06em;text-transform:uppercase}
+.seal b{font:400 clamp(1.1rem,1.6vw,1.45rem)/1 var(--display)}
+#rides .seal{top:24px}
+@media (max-width:760px){.seal{display:none}}
+/* drips: the section above pours into this one */
+.pour{position:absolute;top:0;left:0;right:0;height:0;z-index:2;pointer-events:none}
+.pour i{position:absolute;top:0;width:var(--w);height:var(--h);background:var(--prev);border-radius:0 0 999px 999px;transform-origin:top}
+.pour i::after{content:"";position:absolute;left:50%;bottom:calc(var(--w) * -.35);width:calc(var(--w) * 1.4);aspect-ratio:1;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:inherit;translate:-50% 0}
+#coffee{--prev:var(--cactus)}
+#kicks{--prev:#7d1a12}
+#hats{--prev:#c9e4d0;--accent:var(--cactus)}
+#rides{--prev:#12205c}
+#rides .trail-hero{background:#000}
+#videos{--prev:#e8e0cf}
+#videos .seal{--accent:var(--crema)}
+#store{--prev:#14566e}
+.legacy{position:relative;--prev:var(--yolk)}
+/* papel picado hanging across the top of Food */
+.picado{position:absolute;top:0;left:0;right:0;height:38px;z-index:2;background:var(--cactus);-webkit-mask:radial-gradient(circle at 50% 100%,transparent 12px,#000 13px) 0 0/34px 100%;mask:radial-gradient(circle at 50% 100%,transparent 12px,#000 13px) 0 0/34px 100%}
 .strip{scrollbar-color:var(--accent,var(--cactus)) transparent}
 .menu{background:var(--cactus);color:var(--espresso);box-shadow:0 0 0 100vmax var(--cactus);clip-path:inset(0 -100vmax)}
 .menu ol,.menu li a{border-color:rgba(42,23,14,.35)}
@@ -227,7 +257,7 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
 #hats{--bg:#12205c}
 #rides{--bg:#e8e0cf;--fg:var(--espresso);--accent:#2c3320}
 #videos{--bg:#14566e;--accent:var(--yolk)}
-#videos h2{color:var(--yolk)}
+#videos h2{color:var(--crema)}
 #store{--bg:var(--yolk);--fg:var(--espresso);--accent:#7d1a12}
 #kicks h2,#kicks .es,#rides .ride h3,#store h2{color:var(--accent)}
 #store .history li{border-color:var(--accent)}
@@ -316,7 +346,9 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
   <img class="peek" src="img/coffee-pour.jpg" alt="" aria-hidden="true">
 </section>
 
-<section class="chapter" id="coffee" aria-labelledby="coffee-title">
+<section data-n="01" class="chapter" id="coffee" aria-labelledby="coffee-title">
+  <div class="pour" aria-hidden="true"><i style="left:10%;--w:18px;--h:102px"></i><i style="left:13%;--w:10px;--h:92px"></i><i style="left:16%;--w:14px;--h:32px"></i><i style="left:23%;--w:10px;--h:83px"></i><i style="left:45%;--w:22px;--h:36px"></i><i style="left:54%;--w:14px;--h:39px"></i><i style="left:72%;--w:22px;--h:35px"></i><i style="left:87%;--w:10px;--h:56px"></i></div>
+  <span class="seal" aria-hidden="true"><small>The Tipping Point</small><b>Café</b><small>Est. 2006 HTX</small></span>
   <div class="wrap two">
     <div>
       <h2 class="display" id="coffee-title">Coffee</h2>
@@ -359,7 +391,9 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
   </div>
 </section>
 
-<section class="chapter" id="food" aria-labelledby="food-title">
+<section data-n="02" class="chapter" id="food" aria-labelledby="food-title">
+  <div class="picado" aria-hidden="true"></div>
+  <span class="seal" aria-hidden="true"><small>The Tipping Point</small><b>Cocina</b><small>Est. 2006 HTX</small></span>
   <div class="wrap two">
     <div>
       <h2 class="display" id="food-title">Food</h2>
@@ -385,7 +419,9 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
   </div>
 </section>
 
-<section class="chapter" id="kicks" aria-labelledby="kicks-title">
+<section data-n="03" class="chapter" id="kicks" aria-labelledby="kicks-title">
+  <div class="pour" aria-hidden="true"><i style="left:9%;--w:14px;--h:65px"></i><i style="left:10%;--w:22px;--h:46px"></i><i style="left:11%;--w:10px;--h:101px"></i><i style="left:32%;--w:18px;--h:99px"></i><i style="left:54%;--w:14px;--h:41px"></i><i style="left:77%;--w:14px;--h:75px"></i><i style="left:78%;--w:10px;--h:98px"></i><i style="left:84%;--w:10px;--h:100px"></i></div>
+  <span class="seal" aria-hidden="true"><small>The Tipping Point</small><b>Kicks</b><small>Est. 2006 HTX</small></span>
   <div class="wrap">
     <h2 class="display" id="kicks-title">Sneakers &amp; clothes</h2>
     <p class="lede">The store that ignited streetwear in Houston, back in 2006. Two decades later the sneakers have an adidas tag on them.</p>
@@ -411,7 +447,9 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
   </div>
 </section>
 
-<section class="chapter" id="hats" aria-labelledby="hats-title">
+<section data-n="04" class="chapter" id="hats" aria-labelledby="hats-title">
+  <div class="pour" aria-hidden="true"><i style="left:11%;--w:22px;--h:102px"></i><i style="left:30%;--w:22px;--h:74px"></i><i style="left:44%;--w:18px;--h:59px"></i><i style="left:58%;--w:14px;--h:59px"></i><i style="left:67%;--w:10px;--h:101px"></i><i style="left:72%;--w:18px;--h:95px"></i><i style="left:83%;--w:22px;--h:71px"></i><i style="left:91%;--w:22px;--h:64px"></i></div>
+  <span class="seal" aria-hidden="true"><small>The Tipping Point</small><b>Gorras</b><small>Est. 2006 HTX</small></span>
   <div class="wrap two" style="align-items:center">
     <img class="cap" src="img/hoy-pack.jpg" alt="Hoy Se Bebe caps stacked: green Indio chief and red Trappers" loading="lazy" width="787" height="1400">
     <div>
@@ -449,7 +487,9 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
   </div>
 </section>
 
-<section class="chapter" id="rides" aria-labelledby="rides-title">
+<section data-n="05" class="chapter" id="rides" aria-labelledby="rides-title">
+  <div class="pour" aria-hidden="true"><i style="left:13%;--w:22px;--h:81px"></i><i style="left:19%;--w:10px;--h:37px"></i><i style="left:23%;--w:18px;--h:71px"></i><i style="left:25%;--w:18px;--h:104px"></i><i style="left:47%;--w:22px;--h:102px"></i><i style="left:57%;--w:22px;--h:36px"></i><i style="left:69%;--w:10px;--h:62px"></i><i style="left:81%;--w:22px;--h:36px"></i></div>
+  <span class="seal" aria-hidden="true"><small>The Tipping Point</small><b>Rides</b><small>Est. 2006 HTX</small></span>
   <div class="trail-hero">
     <img src="img/gx-chase.jpg" alt="Lexus GX550 with a Dobinson rear bumper and spare tire carrier in a grassy field" loading="lazy" width="1200" height="1600">
     <h2 class="display" id="rides-title">Rides</h2>
@@ -496,7 +536,9 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
   </div>
 </section>
 
-<section class="chapter videos" id="videos" aria-labelledby="videos-title">
+<section data-n="06" class="chapter videos" id="videos" aria-labelledby="videos-title">
+  <div class="pour" aria-hidden="true"><i style="left:11%;--w:22px;--h:72px"></i><i style="left:40%;--w:10px;--h:87px"></i><i style="left:43%;--w:18px;--h:49px"></i><i style="left:61%;--w:10px;--h:91px"></i><i style="left:77%;--w:10px;--h:55px"></i><i style="left:86%;--w:18px;--h:44px"></i><i style="left:91%;--w:14px;--h:78px"></i><i style="left:93%;--w:22px;--h:91px"></i></div>
+  <span class="seal" aria-hidden="true"><small>The Tipping Point</small><b>Reels</b><small>Est. 2006 HTX</small></span>
   <div class="wrap"><h2 class="display" id="videos-title">On camera</h2><p class="lede">Reels from David and the people around him. Press play.</p></div>
   <div class="strip video-strip" tabindex="0" aria-label="Instagram reels">
     <figure class="video-card"><iframe src="https://www.instagram.com/reel/DaOvRH6RBA6/embed" title="Instagram reel: David tells some of his stories" loading="lazy" allowfullscreen></iframe><figcaption>David tells some of his stories. <span class="credit">Film by @_hvnson_</span></figcaption></figure>
@@ -508,7 +550,9 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
   </div>
 </section>
 
-<section class="chapter" id="store" aria-labelledby="store-title">
+<section data-n="07" class="chapter" id="store" aria-labelledby="store-title">
+  <div class="pour" aria-hidden="true"><i style="left:14%;--w:18px;--h:81px"></i><i style="left:21%;--w:18px;--h:76px"></i><i style="left:25%;--w:14px;--h:47px"></i><i style="left:39%;--w:10px;--h:50px"></i><i style="left:55%;--w:14px;--h:57px"></i><i style="left:59%;--w:14px;--h:29px"></i><i style="left:61%;--w:22px;--h:103px"></i><i style="left:74%;--w:14px;--h:61px"></i></div>
+  <span class="seal" aria-hidden="true"><small>The Tipping Point</small><b>Tienda</b><small>Est. 2006 HTX</small></span>
   <div class="wrap"><h2 class="display" id="store-title">The Store</h2><p class="lede">“Creatively representing Houston since 2007.” Candles, hoodies, caps, pop-ups and parties, from the @thetippingpointstore archive.</p></div>
   <ol class="wrap history" aria-label="Store history">
     <li><strong>2006</strong>The Tipping Point is established.</li>
@@ -563,6 +607,7 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
 </section>
 
 <section class="legacy" aria-labelledby="legacy-title">
+  <div class="pour" aria-hidden="true"><i style="left:4%;--w:18px;--h:44px"></i><i style="left:22%;--w:10px;--h:86px"></i><i style="left:40%;--w:22px;--h:78px"></i><i style="left:51%;--w:22px;--h:78px"></i><i style="left:57%;--w:10px;--h:89px"></i><i style="left:72%;--w:22px;--h:35px"></i><i style="left:76%;--w:14px;--h:36px"></i><i style="left:82%;--w:14px;--h:84px"></i></div>
   <div class="wrap two">
     <div>
       <p class="years" id="legacy-title">2006<br><span class="count">2026</span></p>
@@ -670,6 +715,9 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
   gsap.set(rise, { opacity: 0, y: 70 });
   ScrollTrigger.batch(rise, { start: 'top 92%', once: true, onEnter: b => gsap.fromTo(b, { rotate: () => gsap.utils.random(-6, 6) }, { opacity: 1, y: 0, rotate: 0, duration: 1, ease: 'expo.out', stagger: .07 }) });
   // "Rides" grows as the truck comes into view
+  gsap.utils.toArray('.seal').forEach(s => gsap.fromTo(s, { rotate: -30 }, { rotate: 20, ease: 'none', scrollTrigger: { trigger: s.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } }));
+  gsap.utils.toArray('.chapter[data-n]').forEach(sec => gsap.fromTo(sec, { '--ny': '80px' }, { '--ny': '-80px', ease: 'none', scrollTrigger: { trigger: sec, start: 'top bottom', end: 'bottom top', scrub: true } }));
+  gsap.utils.toArray('.pour').forEach(p => gsap.from(p.children, { scaleY: 0, duration: 1.6, ease: 'power2.out', stagger: .09, scrollTrigger: { trigger: p.parentElement, start: 'top 85%' } }));
   gsap.from('#rides-title', { scale: 1.5, transformOrigin: 'left bottom', ease: 'none', scrollTrigger: { trigger: '.trail-hero', start: 'top bottom', end: 'center center', scrub: true } });
   // 2006 counts up to 2026, the bloom turns
   const yr = { v: 2006 }, count = document.querySelector('.count');

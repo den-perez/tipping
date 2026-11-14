@@ -109,7 +109,6 @@ blockquote footer{margin-top:.6rem}
 
 #coffee h2{color:var(--yolk)}
 
-#food{background:var(--roast)}
 #food h2{color:var(--cactus)}
 
 #kicks h2{color:var(--lime)}
@@ -211,6 +210,29 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
 .links a{border:2px solid var(--crema);border-radius:999px;padding:.55rem 1rem;text-decoration:none;font-weight:700}
 .links a:hover{background:var(--crema);color:var(--espresso)}
 .fine{margin-top:48px;font-size:.8rem;opacity:.6;max-width:70ch}
+
+/* ---------- section worlds: one bg, one ink, one accent each ---------- */
+:focus-visible,.drinks button:focus-visible{outline-color:currentColor}
+.nav{mix-blend-mode:normal;color:var(--crema)}
+.nav .mark,.nav ul{background:var(--espresso);border-radius:999px;padding:.35rem .9rem}
+.chapter{border-top:0;background:var(--bg,transparent);color:var(--fg,var(--crema))}
+.strip{scrollbar-color:var(--accent,var(--cactus)) transparent}
+.menu{background:var(--cactus);color:var(--espresso);box-shadow:0 0 0 100vmax var(--cactus);clip-path:inset(0 -100vmax)}
+.menu ol,.menu li a{border-color:rgba(42,23,14,.35)}
+.menu li a span:last-child{opacity:1}
+.menu li a:hover,.menu li a:focus-visible{color:var(--nopal);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:8px}
+#food{--bg:#7d1a12;--accent:var(--yolk)}
+#food h2{color:var(--yolk)}
+#kicks{--bg:#c9e4d0;--fg:var(--espresso);--accent:var(--nopal)}
+#hats{--bg:#12205c}
+#rides{--bg:#e8e0cf;--fg:var(--espresso);--accent:#2c3320}
+#videos{--bg:#14566e;--accent:var(--yolk)}
+#videos h2{color:var(--yolk)}
+#store{--bg:var(--yolk);--fg:var(--espresso);--accent:#7d1a12}
+#kicks h2,#kicks .es,#rides .ride h3,#store h2{color:var(--accent)}
+#store .history li{border-color:var(--accent)}
+#store .history strong,#store .strip .yr{color:var(--accent)}
+#kicks .credit,#rides .credit,#store .credit{opacity:1}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}

@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>David Tipping</title>
+<meta name="description" content="David Rodriguez, The Tipping Point. Houston coffee, food, sneakers, caps and the trail since 2006.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --espresso:#2a170e; --roast:#3a2216; --crema:#f1dfc3; --cactus:#f26ba6;
+  --nopal:#1d4514; --lime:#b7d84b; --yolk:#f5a623;
+  --display:"Shrikhand",Georgia,serif;
+  --body:"Archivo",system-ui,sans-serif;
+  --gutter:clamp(16px,4vw,56px);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--espresso);color:var(--crema);font:400 1.0625rem/1.6 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yolk);outline-offset:3px;border-radius:4px}
+.wrap{padding-inline:var(--gutter);max-width:1440px;margin-inline:auto}
+.display{font-family:var(--display);font-weight:400;line-height:.92;letter-spacing:-.01em}
+.wide{font-stretch:125%;font-weight:800;letter-spacing:-.02em;line-height:1}
+.credit{font-size:.8125rem;opacity:.85;font-stretch:87%}
+.credit a{text-decoration-thickness:1px;text-underline-offset:2px}
+blockquote p{font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.45;max-width:38ch}
+blockquote footer{margin-top:.6rem}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px var(--gutter);mix-blend-mode:difference;color:#fff}
+.nav .mark{font-family:var(--display);font-size:1.35rem;text-decoration:none}
+.nav ul{display:flex;gap:clamp(12px,2vw,28px);list-style:none;padding:0;font-stretch:87%;font-weight:600;font-size:.95rem}
+.nav ul a{text-decoration:none}
+.nav ul a:hover{text-decoration:underline;text-underline-offset:4px}
+@media (max-width:760px){.nav ul{display:none}}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:grid;grid-template-columns:1.25fr 1fr;align-items:center;gap:var(--gutter);padding-block:110px 72px}
+.hero h1{font-size:clamp(4rem,11.5vw,11rem);color:var(--crema);position:relative}
+.hero h1 .line{display:block}
+.hero h1 .line:last-child{color:var(--cactus);padding-left:.4em}
+.hero h1 .line:last-child{position:relative}
+.drips{position:absolute;inset:0;pointer-events:none}
+.drip{position:absolute;top:.76em;width:.11em;background:var(--cactus);border-radius:0 0 999px 999px;transform-origin:top;animation:drip 7s cubic-bezier(.55,0,.3,1) infinite}
+.drip::after{content:"";position:absolute;left:50%;bottom:0;width:100%;aspect-ratio:1;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:inherit;translate:-50% 0;animation:drop 7s cubic-bezier(.6,0,.9,.5) infinite;animation-delay:inherit}
+@keyframes drip{0%{height:0}55%{height:var(--h)}70%,100%{height:calc(var(--h)*.82)}}
+@keyframes drop{0%,58%{opacity:0;transform:translateY(0) scale(.6)}60%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(42vh) scale(.8)}}
+.hero-side{display:grid;gap:28px;justify-items:start}
+.chrome{width:min(420px,100%);mix-blend-mode:lighten;filter:drop-shadow(0 30px 40px rgba(0,0,0,.35));will-change:transform}
+.hero-side p{max-width:34ch;font-size:1.15rem}
+.hero-side .quote{font-family:var(--display);font-size:clamp(1.6rem,2.6vw,2.3rem);line-height:1.1;color:var(--yolk)}
+@media (max-width:900px){.hero{grid-template-columns:1fr;row-gap:72px}.hero h1{font-size:clamp(3.6rem,19vw,8rem)}.chrome{width:min(300px,70vw)}}
+
+/* ---------- adidas ---------- */
+.collab{background:var(--nopal);color:var(--crema);position:relative;overflow:hidden}
+.tape{background:var(--cactus);color:var(--espresso);font-stretch:125%;font-weight:900;font-size:1.05rem;white-space:nowrap;padding:.55rem 0;transform:rotate(-2deg);margin:0 -2vw;overflow:hidden}
+.tape span{display:inline-block;animation:tape 30s linear infinite;padding-right:2rem}
+@keyframes tape{to{transform:translateX(-50%)}}
+.collab-intro{display:grid;grid-template-columns:1fr 1fr;gap:var(--gutter);padding-block:clamp(56px,9vw,120px) 40px;align-items:end}
+.collab-intro h2{font-size:clamp(3.5rem,9vw,8.5rem);color:var(--lime)}
+.collab-intro h2 small{display:block;font:800 clamp(1rem,1.6vw,1.35rem)/1.2 var(--body);font-stretch:125%;color:var(--crema);margin-bottom:.8rem;letter-spacing:0}
+.collab-intro p{max-width:46ch;font-size:1.15rem}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:22px;font-stretch:87%;font-weight:600}
+.facts div{border-top:2px solid var(--lime);padding-top:6px}
+.facts dt{font-weight:400;opacity:.75;font-size:.85rem}
+.track-outer{padding-bottom:clamp(48px,7vw,96px)}
+.track{display:flex;gap:clamp(16px,2vw,28px);padding-inline:var(--gutter);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;align-items:flex-start}
+.track::-webkit-scrollbar{display:none}
+.panel{flex:0 0 auto;scroll-snap-align:center;width:min(78vw,380px)}
+.panel.tall{width:min(80vw,440px)}
+.panel.text{width:min(84vw,420px);align-self:center}
+.panel img{border-radius:14px;width:100%;aspect-ratio:4/5;object-fit:cover}
+.panel.tall img{aspect-ratio:9/14}
+.panel figcaption{margin-top:12px;font-size:.98rem;max-width:40ch}
+.panel:nth-child(even){margin-top:clamp(0px,6vw,80px)}
+.panel.text blockquote p{font-family:var(--display);font-size:clamp(1.6rem,2.4vw,2.2rem);line-height:1.12;color:var(--lime)}
+.watch{display:inline-block;margin-top:18px;background:var(--cactus);color:var(--espresso);font-weight:800;text-decoration:none;padding:.7rem 1.1rem;border-radius:999px}
+.watch:hover{background:var(--lime)}
+.drag-hint{padding:14px var(--gutter) 0;font-size:.85rem;opacity:.85}
+.js-pin .drag-hint{display:none}
+@media (min-width:900px){
+  .panel:not(.text),.panel.tall:not(.text){width:auto}
+  .panel img,.panel.tall img{height:min(62vh,600px);width:auto;max-width:none}
+  .panel:nth-child(even){margin-top:min(6vh,60px)}
+  .panel figcaption{max-width:32ch}
+}
+
+/* ---------- chapter menu ---------- */
+.menu{padding-block:clamp(72px,10vw,140px)}
+.menu h2{font-size:clamp(2.4rem,5vw,4.2rem);margin-bottom:28px;max-width:16ch}
+.menu ol{list-style:none;padding:0;border-top:1px solid rgba(241,223,195,.25)}
+.menu li a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:clamp(14px,2vw,24px) 0;border-bottom:1px solid rgba(241,223,195,.25);text-decoration:none;transition:color .25s,padding .35s cubic-bezier(.2,.8,.2,1)}
+.menu li a span:first-child{font-stretch:125%;font-weight:850;font-size:clamp(2rem,6.4vw,5.6rem);line-height:1;letter-spacing:-.03em}
+.menu li a span:last-child{font-stretch:87%;opacity:.7;text-align:right;max-width:26ch}
+.menu li a:hover,.menu li a:focus-visible{color:var(--cactus);padding-left:18px}
+.peek{position:fixed;top:0;left:0;width:240px;aspect-ratio:4/5;object-fit:cover;border-radius:12px;pointer-events:none;opacity:0;z-index:15;transition:opacity .2s}
+@media (max-width:700px){.menu li a span:last-child{display:none}.peek{display:none}}
+
+/* ---------- chapters ---------- */
+.chapter{padding-block:clamp(72px,10vw,140px);border-top:1px solid rgba(241,223,195,.15)}
+.chapter h2{font-size:clamp(3rem,8vw,7rem);margin-bottom:24px}
+.chapter .lede{font-size:1.2rem;max-width:44ch}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--gutter);align-items:start}
+@media (max-width:860px){.two,.collab-intro{grid-template-columns:1fr}}
+
+#coffee h2{color:var(--yolk)}
+
+#food{background:var(--roast)}
+#food h2{color:var(--cactus)}
+
+#kicks h2{color:var(--lime)}
+.kicks-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(12px,1.6vw,22px);margin-top:40px}
+.kicks-grid figure:nth-child(1){grid-column:1/6;grid-row:1/3}
+.kicks-grid figure:nth-child(2){grid-column:6/13}
+.kicks-grid figure:nth-child(3){grid-column:6/9}
+.kicks-grid figure:nth-child(4){grid-column:9/13}
+.kicks-grid img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+.kicks-grid figure{display:flex;flex-direction:column;gap:8px}
+.kicks-grid figure img{flex:1;min-height:0}
+@media (max-width:760px){.kicks-grid{grid-template-columns:1fr 1fr}.kicks-grid figure:nth-child(n){grid-column:auto;grid-row:auto}.kicks-grid figure:nth-child(2){grid-column:1/3}}
+
+#hats{overflow:hidden}
+#hats h2{color:var(--cactus)}
+.cap{width:min(520px,100%);border-radius:50% 50% 18px 18px;will-change:transform}
+.es{font-family:var(--display);font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.15;color:var(--yolk);max-width:22ch}
+
+#rides{padding-top:0;border-top:0}
+.trail-hero{position:relative;height:min(92svh,900px);overflow:hidden}
+.trail-hero img{position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover;object-position:center 60%}
+.trail-hero h2{position:absolute;left:var(--gutter);bottom:var(--gutter);font-size:clamp(3.4rem,10vw,9rem);color:var(--crema);text-shadow:0 4px 30px rgba(0,0,0,.45);margin:0}
+.trail-body{padding-top:clamp(48px,7vw,96px)}
+
+/* ---------- added: coffee, food strip, hat wall, rides ---------- */
+.brew{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,20px)}
+.brew figure:first-child{grid-row:span 3}
+.brew img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+.brew figure{display:flex;flex-direction:column;gap:6px}
+.brew figure img{flex:1;min-height:0}
+.strip{scroll-padding-inline:var(--gutter);display:flex;gap:clamp(12px,1.6vw,20px);overflow-x:auto;scroll-snap-type:x mandatory;padding:40px var(--gutter) 8px;scrollbar-width:thin;scrollbar-color:var(--cactus) transparent}
+.strip figure{flex:0 0 auto;scroll-snap-align:start}
+.strip img{height:clamp(280px,48vh,480px);width:auto;border-radius:12px;object-fit:cover}
+.strip .port img{aspect-ratio:3/4}
+.strip .land img{aspect-ratio:3/2}
+.strip figcaption{margin-top:8px;font-size:.95rem;max-width:36ch}
+.wall{list-style:none;padding:0;margin-top:clamp(40px,6vw,72px);display:grid;grid-template-columns:repeat(auto-fill,minmax(min(200px,38vw),1fr));gap:clamp(18px,2.4vw,32px) clamp(12px,1.6vw,20px)}
+.wall img{aspect-ratio:4/5;width:100%;object-fit:cover;border-radius:12px;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.wall figure:hover img{transform:translateY(-6px) rotate(-2deg)}
+.wall figcaption{margin-top:10px;font-size:.92rem;line-height:1.4;font-stretch:87%}
+.wall figcaption strong{display:block;font-family:var(--display);font-weight:400;font-size:1.2rem;color:var(--yolk);font-stretch:100%;margin-bottom:2px}
+.wall figcaption .credit{display:block;margin-top:4px}
+.ride{padding-top:clamp(56px,8vw,110px)}
+.ride h3{font-size:clamp(1.8rem,4vw,3.2rem);color:var(--lime);margin-bottom:16px}
+.ride-head{align-items:end}
+.ride-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,22px);margin-top:32px}
+.ride-grid .span2{grid-column:span 2}
+.garage-note{align-self:end;grid-column:span 2}
+@media (max-width:700px){.garage-note,.ride-grid .moto{grid-column:1/3}}
+.ride-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px}
+.ride-grid .span2 img{aspect-ratio:3/2;height:auto}
+.ride-grid figure{display:flex;flex-direction:column;gap:8px;font-size:.95rem}
+@media (max-width:700px){.ride-grid{grid-template-columns:1fr 1fr}.ride-grid .span2{grid-column:1/3}.ride-grid .span2 img{aspect-ratio:4/3}}
+
+#videos h2{color:var(--cactus)}
+.video-card{flex:0 0 auto;scroll-snap-align:start;width:min(80vw,340px)}
+.video-card iframe{display:block;width:100%;height:600px;border:0;border-radius:14px;background:#000}
+.video-card figcaption{margin-top:10px;font-size:.95rem}
+.c,.w{display:inline-block}
+.w{white-space:nowrap}
+
+.bar{padding-top:clamp(56px,8vw,110px)}
+.bar h3{font-size:clamp(1.8rem,4vw,3.2rem);color:var(--yolk);margin-bottom:24px}
+.bar-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gutter);align-items:start}
+.drinks{list-style:none;padding:0;border-top:1px solid rgba(241,223,195,.25)}
+.drinks button{all:unset;box-sizing:border-box;display:block;width:100%;padding:14px 0;border-bottom:1px solid rgba(241,223,195,.25);cursor:pointer;transition:padding .35s cubic-bezier(.2,.8,.2,1),color .25s}
+.drinks strong{display:block;font-family:var(--display);font-weight:400;font-size:clamp(1.3rem,2.2vw,1.8rem);line-height:1.15}
+.drinks span{display:block;font-size:.95rem;opacity:.85;margin-top:2px}
+.drinks button:hover,.drinks button[aria-pressed="true"]{color:var(--yolk);padding-left:14px}
+.drinks button:focus-visible{outline:3px solid var(--yolk);outline-offset:3px}
+.drink-shot{position:sticky;top:90px}
+.drink-shot img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px}
+.drink-shot figcaption{margin-top:8px}
+.timeline{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px);counter-reset:stop}
+.timeline li{counter-increment:stop;position:relative;padding-top:56px;border-top:2px solid var(--yolk)}
+.timeline li::before{content:counter(stop);position:absolute;top:10px;left:0;font-family:var(--display);font-size:2rem;line-height:1;color:var(--yolk)}
+.timeline img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
+.timeline figcaption{margin-top:10px;font-size:.98rem}
+.timeline strong{display:block;font-family:var(--display);font-weight:400;font-size:1.5rem;color:var(--crema)}
+@media (max-width:760px){.bar-grid,.timeline{grid-template-columns:1fr}.drink-shot{position:static;order:-1}}
+
+/* ---------- legacy ---------- */
+.legacy{background:#000;color:var(--crema);padding-block:clamp(72px,10vw,140px);overflow:hidden}
+.legacy .two{align-items:center}
+.years{font-family:var(--display);font-size:clamp(4rem,12vw,12rem);line-height:.85;color:var(--cactus)}
+.legacy img{width:min(420px,100%);margin-inline:auto}
+
+footer.site{padding-block:64px 40px}
+footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-bottom:18px}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.links a{border:2px solid var(--crema);border-radius:999px;padding:.55rem 1rem;text-decoration:none;font-weight:700}
+.links a:hover{background:var(--crema);color:var(--espresso)}
+.fine{margin-top:48px;font-size:.8rem;opacity:.6;max-width:70ch}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .drip{height:calc(var(--h)*.82)}
+  .drip::after{display:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <a class="mark" href="#top">Tipping</a>
+  <ul>
+    <li><a href="#cactus-flower">adidas</a></li>
+    <li><a href="#coffee">Coffee</a></li>
+    <li><a href="#food">Food</a></li>
+    <li><a href="#kicks">Kicks</a></li>
+    <li><a href="#hats">Hats</a></li>
+    <li><a href="#rides">Rides</a></li>
+    <li><a href="#videos">Watch</a></li>
+  </ul>
+</nav>
+
+<header class="hero wrap" id="top">
+  <div>
+    <h1 class="display" aria-label="The Tipping Point">
+      <span class="line">The Tipping</span>
+      <span class="line">Point<span class="drips" aria-hidden="true"><i class="drip" style="left:.5em;--h:.45em;animation-delay:.2s"></i><i class="drip" style="left:1.25em;--h:.75em;animation-delay:1.6s"></i><i class="drip" style="left:1.86em;--h:.32em;animation-delay:3.1s"></i><i class="drip" style="left:2.5em;--h:.6em;animation-delay:.9s"></i></span></span>
+    </h1>
+  </div>
+  <div class="hero-side">
+    <img class="chrome" src="img/chrome-logo.jpg" alt="Chrome bubble-letter Tipping Point logo" width="655" height="644">
+    <p class="quote">“The hood Anthony Bourdain.”</p>
+    <p>David Rodriguez. Houston, since 2006. Streetwear, coffee, food, caps and a GX built for West Texas. What you like he liked ten years ago.</p>
+  </div>
+</header>
+
+<section class="collab" id="cactus-flower" aria-labelledby="collab-title">
+  <div class="tape" aria-hidden="true"><span>Slow Drip Tour ✿ Limited drop ✿ Houston TX ✿ 11.07.26 ✿ Tipping Point Adistar ✿ Slow Drip Tour ✿ Limited drop ✿ Houston TX ✿ 11.07.26 ✿ Tipping Point Adistar ✿ </span><span>Slow Drip Tour ✿ Limited drop ✿ Houston TX ✿ 11.07.26 ✿ Tipping Point Adistar ✿ Slow Drip Tour ✿ Limited drop ✿ Houston TX ✿ 11.07.26 ✿ Tipping Point Adistar ✿ </span></div>
+  <div class="wrap collab-intro">
+    <h2 class="display" id="collab-title"><small>adidas × The Tipping Point</small>Cactus Flower</h2>
+    <div>
+      <p>Twenty years of The Tipping Point, marked with a limited adidas Adistar for the Slow Drip Tour. It’s an ode to West Texas and the Chihuahuan Desert, fueled by coffee, creativity and sneaker culture.</p>
+      <dl class="facts">
+        <div><dt>Released</dt><dd>November 7, 2026</dd></div>
+        <div><dt>Event</dt><dd>1610 Houston Ave, Houston</dd></div>
+        <div><dt>Shoe</dt><dd>Tipping Point Adistar</dd></div>
+      </dl>
+    </div>
+  </div>
+  <p class="drag-hint">Swipe through the drop</p>
+  <div class="track-outer">
+    <div class="track" tabindex="0" aria-label="Cactus Flower photos">
+      <figure class="panel tall"><img src="img/cactus-window.jpg" alt="The Cactus Flower Adistar and its burlap bag in an adobe window over desert mountains" loading="lazy" width="1281" height="1600"><figcaption>“Here is the beginning of our 20 year celebration.” <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
+      <figure class="panel"><img src="img/shoe-cracked.jpg" alt="Pink and green Adistar on cracked desert earth" loading="lazy" width="1080" height="1152"><figcaption>Pink, cactus green and a yolk-yellow sole. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
+      <figure class="panel tall"><img src="img/shoe-rock.jpg" alt="The Adistar pair resting on a desert rock at dusk" loading="lazy" width="900" height="1600"><figcaption>Out in the Chihuahuan Desert. <span class="credit">via @thetippingpoint_coffee</span></figcaption></figure>
+      <figure class="panel"><img src="img/burlap-bag.jpg" alt="Adistar on its box in front of a burlap adidas Slow Drip Tour bag" loading="lazy" width="1280" height="1600"><figcaption>Packed in a coffee-sack burlap bag. <span class="credit">@coldthingaboutit</span></figcaption></figure>
+      <div class="panel text"><blockquote><p>“Brown and proud, but for the people.”</p><footer class="credit">@thetippingpoint_coffee</footer></blockquote></div>
+      <figure class="panel tall"><img src="img/desert-night.jpg" alt="Two figures by a truck in the desert at night, lit red" loading="lazy" width="1280" height="1600"><figcaption>Promo for the drop. <span class="credit">Photo @max_hummels</span></figcaption></figure>
+      <figure class="panel"><img src="img/adistar-poster.jpg" alt="Green and pink release poster: Tipping Point Adistar, Houston TX, 11.07.26" loading="lazy" width="1078" height="1350"><figcaption>“Custom kicks for a community whose only rule is authenticity.”</figcaption></figure>
+      <figure class="panel"><img src="img/drop-day.jpg" alt="David and a friend holding adidas bags on drop day, crowd behind them" loading="lazy" width="1280" height="1600"><figcaption>Drop day at 1610 Houston Ave. <span class="credit">@coldthingaboutit</span></figcaption></figure>
+      <figure class="panel tall"><img src="img/shoe-of-year.jpg" alt="Sneaker reviewer holding up the Adistar: is this shoe of the year?" loading="lazy" width="900" height="1600"><figcaption>“Ain’t nothing slow about the way these drip.” <span class="credit">@itsgeza</span></figcaption></figure>
+      <figure class="panel"><img src="img/merch-hoodie.jpg" alt="Back of a grey hoodie with Tipping Point 20 years script print" loading="lazy" width="1200" height="1600"><figcaption>20 year anniversary merch. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
+      <div class="panel text"><blockquote><p>“Thank you Houston for the love and support for the last 20 years. Here’s to another 20.”</p><footer class="credit">@thetippingpoint_coffee</footer></blockquote>
+        <a class="watch" href="https://www.instagram.com/thetippingpoint_coffee/reel/Dfpm4iShT2S/" target="_blank" rel="noopener">Watch the recap on Instagram</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="menu wrap" aria-labelledby="menu-title">
+  <h2 class="display" id="menu-title">Everything that makes it feel like home</h2>
+  <ol>
+    <li><a href="#coffee" data-peek="img/coffee-pour.jpg"><span>Coffee</span><span>The bar that changed the coffee game</span></a></li>
+    <li><a href="#food" data-peek="img/food-grill.jpg"><span>Food</span><span>Pop-ups, plates and Oaxaca</span></a></li>
+    <li><a href="#kicks" data-peek="img/review-hand.jpg"><span>Sneakers &amp; clothes</span><span>The store that ignited streetwear</span></a></li>
+    <li><a href="#hats" data-peek="img/cap-deathnote.jpg"><span>Hats</span><span>Caps with a story</span></a></li>
+    <li><a href="#rides" data-peek="img/merc-hat.jpg"><span>Rides</span><span>A trail-built GX, a ’93 Benz and a bike</span></a></li>
+  </ol>
+  <img class="peek" src="img/coffee-pour.jpg" alt="" aria-hidden="true">
+</section>
+
+<section class="chapter" id="coffee" aria-labelledby="coffee-title">
+  <div class="wrap two">
+    <div>
+      <h2 class="display" id="coffee-title">Coffee</h2>
+      <p class="lede">The Tipping Point Coffee is a spot for the homies, the creatives and the people. A place where culture, community and good energy meet.</p>
+      <blockquote style="margin-top:32px"><p>“From food and sneakers to hats and music, David blended all the things that make his world feel like home and brought that energy into a coffee shop.”</p><footer class="credit">@coolxdad, CoolxGuide</footer></blockquote>
+      <p class="es" style="margin-top:40px">“Whisked matcha and espresso tonics… always.”</p>
+      <p class="credit" style="margin-top:6px">@thetippingpoint_coffee</p>
+    </div>
+    <div class="brew">
+      <figure><img src="img/coffee-pour.jpg" alt="David at the bar holding two cups of coffee" loading="lazy" width="1050" height="1400"><figcaption><span class="credit">@david__tipping</span></figcaption></figure>
+      <figure><img src="img/coffee-latte.jpg" alt="Latte with rosetta art on a wooden counter" loading="lazy" width="1050" height="1400"></figure>
+      <figure><img src="img/coffee-espresso.jpg" alt="David working the espresso machine behind the coffee bar" loading="lazy" width="1050" height="1400"><figcaption><span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
+      <figure><img src="img/coffee-cup.jpg" alt="Tipping Point paper cup with a spiced drink, lit in the dark" loading="lazy" width="1050" height="1400"></figure>
+    </div>
+  </div>
+
+  <div class="wrap bar">
+    <h3 class="wide">On the bar</h3>
+    <div class="bar-grid">
+      <ul class="drinks" aria-label="Drinks">
+        <li><button type="button" data-img="img/d-matcha-straw.jpg" data-alt="Iced matcha layered over strawberry syrup" data-credit="@thetippingpoint_coffee" aria-pressed="true"><strong>Matcha, cardamom &amp; strawberry</strong><span>Seasonal matcha with house-made cardamom and strawberry syrups.</span></button></li>
+        <li><button type="button" data-img="img/d-kumquat.jpg" data-alt="Layered espresso tonic with an orange slice under a neon sign" data-credit="@thetippingpoint_coffee" aria-pressed="false"><strong>Espresso tonic</strong><span>With the signature kumquat syrup.</span></button></li>
+        <li><button type="button" data-img="img/d-matchatonic.jpg" data-alt="Bright green matcha tonic with an orange slice" data-credit="@thetippingpoint_coffee" aria-pressed="false"><strong>Matcha tonic</strong><span>For something refreshing.</span></button></li>
+        <li><button type="button" data-img="img/d-bluemagic.jpg" data-alt="Blue matcha latte on the bar in front of the menu board" data-credit="@robbboomin" aria-pressed="false"><strong>Blue Magic</strong><span>Blue matcha, back by popular demand for the OGs.</span></button></li>
+        <li><button type="button" data-img="img/d-algreen.jpg" data-alt="Iced matcha latte under the Music for the People neon sign" data-credit="@aflo512" aria-pressed="false"><strong>The Al Green</strong><span>Matcha, creamy milk and a touch of honey. A Coffee Breaks feature.</span></button></li>
+        <li><button type="button" data-img="img/d-negroni.jpg" data-alt="Two negronis with orange peel" data-credit="@thetippingpoint_coffee" aria-pressed="false"><strong>Negroni</strong><span>Made on the Linea Mini for House of Negroni during SCA 2025.</span></button></li>
+        <li><button type="button" data-img="img/d-oat.jpg" data-alt="Espresso pouring into an iced oat latte" data-credit="@raggedysmiles" aria-pressed="false"><strong>Oat latte</strong><span>Dairy not your thing? Proudly serving Minor Figures.</span></button></li>
+        <li><button type="button" data-img="img/d-espresso.jpg" data-alt="Espresso pulling into a steel cup" data-credit="@raggedysmiles" aria-pressed="false"><strong>Espresso</strong><span>Some say it’s the best in the city. They won’t confirm or deny.</span></button></li>
+      </ul>
+      <figure class="drink-shot"><img src="img/d-matcha-straw.jpg" alt="Iced matcha layered over strawberry syrup" loading="lazy" width="1050" height="1400"><figcaption class="credit">@thetippingpoint_coffee</figcaption></figure>
+    </div>
+  </div>
+  <div class="wrap bar">
+    <h3 class="wide">Three addresses</h3>
+    <ol class="timeline">
+      <li><figure><img src="img/p-downtown.jpg" alt="A red classic Chevy Blazer parked outside the downtown storefront" loading="lazy" width="1400" height="1254"><figcaption><strong>Downtown</strong>214 Travis St. Eight years of coffee, shopping and some pretty great events in downtown Houston. <span class="credit">@raggedysmiles</span></figcaption></figure></li>
+      <li><figure><img src="img/p-heights.jpg" alt="Barista pulling shots under the Tipping Point Heights sign" loading="lazy" width="1122" height="1400"><figcaption><strong>The Heights pop-up</strong>4721 N Main St, now closed. While it ran, it was home to the weekend specials, like pozole and Cajun gumbo. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure></li>
+      <li><figure><img src="img/p-93til.jpg" alt="Coffee bar inside 93 Til with shelves of records" loading="lazy" width="1400" height="933"><figcaption><strong>Inside 93’ Til</strong>1601 W Main St. Coffee and records all day, alongside the homies at 93’ Til. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure></li>
+    </ol>
+  </div>
+</section>
+
+<section class="chapter" id="food" aria-labelledby="food-title">
+  <div class="wrap two">
+    <div>
+      <h2 class="display" id="food-title">Food</h2>
+      <p class="lede">Before the coffee bar there was the kitchen. Twenty years of pop-ups, plates and a culinary career that earned the name “the hood Anthony Bourdain.” These days the coffee bar cooks too: breakfast, weekend specials and pop-up plates.</p>
+    </div>
+    <blockquote><p>“From opening the first shop of its kind in the city, to producing crazy pop ups with streetwear and hip hop legends, to even my culinary career.”</p><footer class="credit">David, @david__tipping</footer></blockquote>
+  </div>
+  <div class="strip" tabindex="0" aria-label="Food photos">
+    <figure class="port"><img src="img/food-grill.jpg" alt="Cook in an apron and bucket hat working a backyard grill" loading="lazy" width="1050" height="1400"><figcaption>“Friends, food, coffee &amp; bullshit.” <span class="credit">@david__tipping</span></figcaption></figure>
+    <figure class="port"><img src="img/food-serve.jpg" alt="David talking with a guest beside a serving table" loading="lazy" width="1055" height="1400"><figcaption>Pop-up day. <span class="credit">@david__tipping</span></figcaption></figure>
+    <figure class="land"><img src="img/food-comal.jpg" alt="Women pressing and cooking tortillas on a comal in an Oaxaca market" loading="lazy" width="1230" height="832"><figcaption>Oaxaca with the boyz. <span class="credit">@david__tipping</span></figcaption></figure>
+    <figure class="land"><img src="img/food-fire.jpg" alt="Meat and green onions cooking over an open fire" loading="lazy" width="1390" height="944"><figcaption>Over open flame in Oaxaca.</figcaption></figure>
+    <figure class="land"><img src="img/food-market-tp.jpg" alt="Crowded Oaxaca market, a Tipping Point shirt in the middle" loading="lazy" width="1390" height="944"><figcaption>The Tipping Point in the market.</figcaption></figure>
+    <figure class="land"><img src="img/food-market.jpg" alt="Oaxaca market stalls piled with produce" loading="lazy" width="1230" height="832"><figcaption>Market run.</figcaption></figure>
+    <figure class="land"><img src="img/food-table.jpg" alt="Long wooden table set with limes and rows of mezcal glasses" loading="lazy" width="1400" height="950"><figcaption>The table, set. Oaxaca photos mostly by @salahuddinxciii.</figcaption></figure>
+    <figure class="port"><img src="img/f-ricebowl.jpg" alt="Steak rice bowl with radish, herbs and pickled onion" loading="lazy" width="788" height="1400"><figcaption>From the coffee bar kitchen. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
+    <figure class="port"><img src="img/f-gumbo.jpg" alt="Bowl of Cajun gumbo with rice" loading="lazy" width="1120" height="1400"><figcaption>Cajun gumbo with Sweetwater Farms okra, smoked sausage and chicken. A weekend special from the Heights pop-up. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
+    <figure class="land"><img src="img/f-pozole.jpg" alt="Bowl of red pozole topped with cabbage and radish" loading="lazy" width="1400" height="1400"><figcaption>Pozole, while supplies last. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
+    <figure class="land"><img src="img/f-dilla.jpg" alt="Two breakfast donut sandwiches in paper boats" loading="lazy" width="1400" height="932"><figcaption>Dilla &amp; Donuts: eats inspired by J Dilla. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
+    <figure class="port"><img src="img/f-conchas.jpg" alt="Chocolate concha and cuernito next to a cortado" loading="lazy" width="1050" height="1400"><figcaption>Chocolate conchas and cuernitos by barista @viole.coffee. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
+    <figure class="land"><img src="img/f-oatpie.jpg" alt="Hand holding a stack of oatmeal cream pies" loading="lazy" width="1400" height="1400"><figcaption>Oatmeal pies by @awkdreabakedthis. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
+    <figure class="land"><img src="img/f-pdx.jpg" alt="Cooks in aprons grilling at an outdoor cookout" loading="lazy" width="1400" height="1118"><figcaption>Portland cookout: jerk chicken, BBQ ribs and beef suya. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="chapter" id="kicks" aria-labelledby="kicks-title">
+  <div class="wrap">
+    <h2 class="display" id="kicks-title">Sneakers &amp; clothes</h2>
+    <p class="lede">The store that ignited streetwear in Houston, back in 2006. Two decades later the sneakers have an adidas tag on them.</p>
+    <div class="kicks-grid">
+      <figure><img src="img/review-hand.jpg" alt="Hand holding the pink and green Adistar in front of a wall of caps" loading="lazy" width="720" height="1280"><figcaption class="credit">@wilderliving_</figcaption></figure>
+      <figure><img src="img/david-shop.jpg" alt="David seated in a colorful shop in a green jersey and bucket hat" loading="lazy" width="1320" height="744"><figcaption class="credit">Film by @_hvnson_</figcaption></figure>
+      <figure><img src="img/shoe-pebbles.jpg" alt="Adistar displayed on white pebbles" loading="lazy" width="670" height="1186"><figcaption class="credit">@brownbandanna</figcaption></figure>
+      <figure><img src="img/merch-hoodie.jpg" alt="Tipping Point 20 years hoodie" loading="lazy" width="1200" height="1600"><figcaption class="credit">@thetippingpoint_coffee</figcaption></figure>
+    </div>
+    <div class="two ride-head" style="margin-top:clamp(56px,8vw,100px)">
+      <p class="es">“Sneaker game is coming back right.”</p>
+      <p class="lede">At the Unheard Of “Oink Oink” launch, boxes in hand and every colorway on the floor. Plus a Lone Star style session in the adidas Superstar II.</p>
+    </div>
+    <div class="ride-grid">
+      <figure class="span2"><img src="img/kicks-oink-circle.jpg" alt="Circle of feet in pink, yellow, orange and mint sneakers" loading="lazy" width="1050" height="1400"><figcaption>Every colorway in the circle. <span class="credit">@david__tipping</span></figcaption></figure>
+      <figure><img src="img/kicks-oink-hand.jpg" alt="Hand holding a mint green sneaker with pink stripes" loading="lazy" width="1050" height="1400"><figcaption><span class="credit">@david__tipping</span></figcaption></figure>
+      <figure><img src="img/kicks-oink-boxes.jpg" alt="Pink and green Oink Oink Unheard Of shoe boxes on a wood floor" loading="lazy" width="1050" height="1400"><figcaption><span class="credit">@david__tipping</span></figcaption></figure>
+      <figure><img src="img/kicks-oink-event.jpg" alt="David at the Oink Oink Unheard Of launch wall with inflatable pigs" loading="lazy" width="1050" height="1400"><figcaption>The launch. <span class="credit">@david__tipping</span></figcaption></figure>
+      <figure><img src="img/kicks-lonestar.jpg" alt="David in a plaid shirt, jeans and black Superstars in a western shop" loading="lazy" width="788" height="1400"><figcaption>Lone Star Style Session. <span class="credit">@activeathlete88</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="hats" aria-labelledby="hats-title">
+  <div class="wrap two" style="align-items:center">
+    <img class="cap" src="img/hoy-pack.jpg" alt="Hoy Se Bebe caps stacked: green Indio chief and red Trappers" loading="lazy" width="787" height="1400">
+    <div>
+      <h2 class="display" id="hats-title">Hats</h2>
+      <p class="lede">David has been cooking up fitteds for years: Astros reworks, beer packs, tributes to Dipset and Chalino Sánchez, and a cap inspired by his own Mercedes.</p>
+      <p class="es" lang="es" style="margin-top:24px">“Hoy Se Bebe.”</p>
+      <p class="lede" style="margin-top:10px">A five-pack of New Era 59FIFTYs for Hat Club, packed with Mexican flair and dropped to open Hispanic Heritage Month.</p>
+      <p class="credit" style="margin-top:10px">Photo @wilderliving_</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <ul class="wall" aria-label="Caps designed by David">
+      <li><figure><img src="img/pirates-cap.jpg" alt="Pacifico Pirates fitted cap" loading="lazy" width="1200" height="1600"><figcaption><strong>Pacifico Pirates</strong>Hoy Se Bebe, Hat Club<span class="credit">@wilderliving_</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-barrilito.jpg" alt="Barrilito Brewers fitted cap" loading="lazy" width="1050" height="1400"><figcaption><strong>Barrilito Brewers</strong>Hoy Se Bebe, Hat Club<span class="credit">@wilderliving_</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-estrella.jpg" alt="Estrella de Jalisco Astros fitted cap" loading="lazy" width="1050" height="1400"><figcaption><strong>Estrella de Jalisco Astros</strong>Hoy Se Bebe, Hat Club<span class="credit">@wilderliving_</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-cartablanca.jpg" alt="Carta Blanca Trappers fitted cap" loading="lazy" width="1050" height="1400"><figcaption><strong>Carta Blanca Trappers</strong>Hoy Se Bebe, Hat Club<span class="credit">@wilderliving_</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-modelo.jpg" alt="Modelo Negra Space Cowboys fitted cap" loading="lazy" width="1051" height="1400"><figcaption><strong>Modelo Negra Space Cowboys</strong>Hoy Se Bebe, Hat Club app exclusive<span class="credit">@wilderliving_</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-skull.jpg" alt="Skull Chief Indio fitted cap" loading="lazy" width="1050" height="1400"><figcaption><strong>Skull Chief Indio</strong>Hoy Se Bebe, Hat Club<span class="credit">@wilderliving_</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-diplomat-bench.jpg" alt="The Diplomat fitted caps, cream and red Astros, stacked on a park bench" loading="lazy" width="1050" height="1400"><figcaption><strong>The Diplomat</strong>A tribute to Dipset’s Harlem era<span class="credit">@david__tipping</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-deathnote.jpg" alt="The Death Note fitted cap" loading="lazy" width="1050" height="1400"><figcaption><strong>The Death Note</strong>For corrido legend Chalino Sánchez, with Southside<span class="credit">@thetippingpointstore</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-misa.jpg" alt="La Misa de Gallo fitted cap" loading="lazy" width="1050" height="1400"><figcaption><strong>La Misa de Gallo</strong>La Morenita and El Gallero, with Southside<span class="credit">@david__tipping</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-gallero.jpg" alt="Young man in a leopard coat holding a rooster and wearing a tan Astros cap" loading="lazy" width="1055" height="1400"><figcaption><strong>El Gallero</strong>Bronze and stone, La Misa de Gallo<span class="credit">@david__tipping</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-merc.jpg" alt="Dark green star-logo fitted caps on the hood of a green Mercedes" loading="lazy" width="1400" height="1400"><figcaption><strong>The Merc</strong>Colors taken from his ’93 Mercedes 300CE<span class="credit">@david__tipping</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-mango.jpg" alt="Agua de Mango 2.0 fitted cap" loading="lazy" width="1050" height="1400"><figcaption><strong>Agua de Mango 2.0</strong>Crowns and Coffee series<span class="credit">@thetippingpointstore</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-matchaguy.jpg" alt="Matcha Guy fitted cap" loading="lazy" width="1050" height="1400"><figcaption><strong>Matcha Guy</strong>Crowns and Coffee series<span class="credit">@thetippingpointstore</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-bluematcha.jpg" alt="Blue Magic Matcha fitted cap" loading="lazy" width="1122" height="1400"><figcaption><strong>Blue Magic Matcha</strong>Matcha Pack Astros<span class="credit">@t800jon</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-texasbeer.jpg" alt="Texas Beer Pack fitted cap" loading="lazy" width="1152" height="1152"><figcaption><strong>Texas Beer Pack</strong>David designed The Shiner<span class="credit">@whatafitted</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-denim.jpg" alt="Japanese Denim fitted cap" loading="lazy" width="788" height="1400"><figcaption><strong>Japanese Denim</strong>Astros two-hat release with @whatafitted<span class="credit">@whatafitted</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-lolife.jpg" alt="Lo-Life 4 Hat Range fitted cap" loading="lazy" width="1050" height="1400"><figcaption><strong>Lo-Life 4 Hat Range</strong>Polo-inspired pack<span class="credit">@david__tipping</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-doom.jpg" alt="DOOM fitted cap" loading="lazy" width="1050" height="1400"><figcaption><strong>DOOM</strong>Doomsday Pack, with @robbboomin<span class="credit">@whatafitted</span></figcaption></figure></li>
+      <li><figure><img src="img/cap-cattle.jpg" alt="Cattle Pack 2025 fitted cap" loading="lazy" width="787" height="1400"><figcaption><strong>Cattle Pack 2025</strong>Hat Club<span class="credit">@david__tipping</span></figcaption></figure></li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter" id="rides" aria-labelledby="rides-title">
+  <div class="trail-hero">
+    <img src="img/gx-chase.jpg" alt="Lexus GX550 with a Dobinson rear bumper and spare tire carrier in a grassy field" loading="lazy" width="1200" height="1600">
+    <h2 class="display" id="rides-title">Rides</h2>
+  </div>
+
+  <div class="wrap ride">
+    <div class="two ride-head">
+      <div><h3 class="wide">The GX550 Overtrail</h3><p class="lede">Built out with Adventure Fitter Solutions in Katy: Dobinson suspension and steel bumper, a Westcott collar lift, 35-inch Nitto tires and a rooftop tent. Then taken where it was built to go, from the Piney Woods to Marfa.</p></div>
+      <blockquote><p>“I bought this car to have fun, not to have a pavement princess.”</p><footer class="credit">David, @david__tipping</footer></blockquote>
+    </div>
+    <div class="ride-grid">
+      <figure class="span2"><img src="img/gx-marfa.jpg" alt="Two GX550s parked outside the Sentinel in Marfa, Texas" loading="lazy" width="1400" height="1050"><figcaption>West Texas. <span class="credit">@3rdcoastoverland</span></figcaption></figure>
+      <figure><img src="img/gx-overtrail.jpg" alt="GX550 parked among tall pines" loading="lazy" width="1050" height="1400"><figcaption><span class="credit">@theafpgallery</span></figcaption></figure>
+      <figure><img src="img/gx-tent.jpg" alt="Rooftop tent popped open on top of the GX" loading="lazy" width="1400" height="1399"><figcaption><span class="credit">@david__tipping</span></figcaption></figure>
+      <figure class="span2"><img src="img/gx-profile.jpg" alt="GX550 in profile with bronze wheels and a rooftop tent, outside a shop" loading="lazy" width="1400" height="1400"><figcaption>Reveal day, before the Toyota Jamboree. <span class="credit">@david__tipping</span></figcaption></figure>
+      <figure><img src="img/gx-trail.jpg" alt="GX550 climbing a red dirt trail through green woods" loading="lazy" width="901" height="1600"><figcaption><span class="credit">@adventurefittersolutions4wd</span></figcaption></figure>
+      <figure><img src="img/gx-dirty.jpg" alt="David beside his mud-covered GX550 in the woods" loading="lazy" width="1055" height="1400"><figcaption>“She’s a very dirty girl.” Photo @robbboomin</figcaption></figure>
+      <figure><img src="img/gx-horses.jpg" alt="GX550 on a desert road with riders on horseback behind it" loading="lazy" width="788" height="1400"><figcaption><span class="credit">@adventurefittersolutions4wd</span></figcaption></figure>
+      <figure class="span2"><img src="img/gx-beach.jpg" alt="Black GX parked on the sand at the beach" loading="lazy" width="1120" height="1400"><figcaption>Storm Chronicles. <span class="credit">@david__tipping</span></figcaption></figure>
+      <figure><img src="img/gx-pines.jpg" alt="GX550 with rooftop tent among pine trees" loading="lazy" width="1050" height="1400"><figcaption><span class="credit">@theafpgallery</span></figcaption></figure>
+    </div>
+  </div>
+
+  <div class="wrap ride">
+    <div class="two ride-head">
+      <div><h3 class="wide">The Merc</h3><p class="lede">A 1993 Mercedes-Benz 300CE coupe, built in the spirit of the 90s “dope boyz” cars. Field green up top, moss green below. It’s well known enough that it got its own fitted.</p></div>
+      <p><a class="watch" href="https://www.instagram.com/nocompany.motors/reel/C93Jt5APSQt/" target="_blank" rel="noopener">Watch the No Company Motors episode</a></p>
+    </div>
+    <div class="ride-grid">
+      <figure class="span2"><img src="img/merc-hat.jpg" alt="David leaning on his green 1993 Mercedes 300CE coupe on a Houston street" loading="lazy" width="1400" height="1400"><figcaption>“The Merc,” the car behind the cap. <span class="credit">@david__tipping</span></figcaption></figure>
+      <figure><img src="img/merc-worldcup.jpg" alt="Man in a green Mexico jersey looking at a classic car" loading="lazy" width="1050" height="1400"><figcaption><span class="credit">@theafpgallery</span></figcaption></figure>
+      <figure><img src="img/merc-store.jpg" alt="The green Mercedes parked outside a Houston shop with a crowd" loading="lazy" width="1050" height="1400"><figcaption><span class="credit">@uncle_rayallen</span></figcaption></figure>
+      <figure class="span2"><img src="img/merc-mural.jpg" alt="Two green Mercedes coupes in front of a painted mural" loading="lazy" width="640" height="1136"><figcaption><span class="credit">@david__tipping</span></figcaption></figure>
+      <figure class="span2"><img src="img/merc-caps-hood.jpg" alt="Pyramid of green The Merc caps on the hood of the Mercedes" loading="lazy" width="1400" height="1400"><figcaption>The cap, on the car. <span class="credit">@david__tipping</span></figcaption></figure>
+      <figure><img src="img/merc-street.jpg" alt="Green Mercedes 300CE coupe parked on a sunny street" loading="lazy" width="1120" height="1400"><figcaption><span class="credit">@david__tipping</span></figcaption></figure>
+    </div>
+  </div>
+
+  <div class="wrap ride">
+    <div class="ride-grid">
+      <div class="garage-note"><h3 class="wide">On two wheels</h3><p class="lede">And the bike he still misses.</p></div>
+      <figure class="moto"><img src="img/moto.jpg" alt="David in a bandana jacket beside a yellow motorcycle" loading="lazy" width="1120" height="1400"><figcaption>“I miss riding, sometimes. But life is frail on 2 wheels.” <span class="credit">@david__tipping</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="chapter videos" id="videos" aria-labelledby="videos-title">
+  <div class="wrap"><h2 class="display" id="videos-title">On camera</h2><p class="lede">Reels from David and the people around him. Press play.</p></div>
+  <div class="strip video-strip" tabindex="0" aria-label="Instagram reels">
+    <figure class="video-card"><iframe src="https://www.instagram.com/reel/DaOvRH6RBA6/embed" title="Instagram reel: David tells some of his stories" loading="lazy" allowfullscreen></iframe><figcaption>David tells some of his stories. <span class="credit">Film by @_hvnson_</span></figcaption></figure>
+    <figure class="video-card"><iframe src="https://www.instagram.com/reel/Dfpm4iShT2S/embed" title="Instagram reel: Cactus Flower recap" loading="lazy" allowfullscreen></iframe><figcaption>Cactus Flower recap. <span class="credit">@thetippingpoint_coffee</span></figcaption></figure>
+    <figure class="video-card"><iframe src="https://www.instagram.com/reel/DcuZZ7usd_A/embed" title="Instagram reel: Hoy Se Bebe in detail" loading="lazy" allowfullscreen></iframe><figcaption>Hoy Se Bebe in detail. <span class="credit">@wilderliving_</span></figcaption></figure>
+    <figure class="video-card"><iframe src="https://www.instagram.com/reel/DOMqmKAERQ_/embed" title="Instagram reel: The green monster on the dirt" loading="lazy" allowfullscreen></iframe><figcaption>The green monster on the dirt. <span class="credit">@david__tipping</span></figcaption></figure>
+    <figure class="video-card"><iframe src="https://www.instagram.com/reel/C93Jt5APSQt/embed" title="Instagram reel: The Merc on No Company Motors" loading="lazy" allowfullscreen></iframe><figcaption>The Merc on No Company Motors. <span class="credit">@nocompany.motors</span></figcaption></figure>
+    <figure class="video-card"><iframe src="https://www.instagram.com/reel/DchZT1-QFvy/embed" title="Instagram reel: Coffee Diaries: what makes a good espresso" loading="lazy" allowfullscreen></iframe><figcaption>Coffee Diaries: what makes a good espresso. <span class="credit">@layman_rob</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="legacy" aria-labelledby="legacy-title">
+  <div class="wrap two">
+    <div>
+      <p class="years" id="legacy-title">2006<br><span class="count">2026</span></p>
+      <blockquote style="margin-top:32px"><p>“For whatever reason for the last almost 20 years people find what I have contributed to the streetwear and creative scene interesting. I finally step out of my comfort zone and tell some of these stories.”</p><footer class="credit">David, <a href="https://www.instagram.com/david__tipping/reel/DaOvRH6RBA6/" target="_blank" rel="noopener">watch on Instagram</a></footer></blockquote>
+    </div>
+    <img src="img/chrome-bloom.jpg" alt="Chrome cactus flower with a pink bloom above the years 2006 to 2026" loading="lazy" width="900" height="1600">
+  </div>
+</section>
+
+<footer class="site wrap">
+  <p class="display">Pull up for a fresh pour</p>
+  <p>The Tipping Point store, inside 93’ Til, 1601 W Main St, Houston TX 77006.</p>
+  <div class="links">
+    <a href="https://www.instagram.com/david__tipping/" target="_blank" rel="noopener">@david__tipping</a>
+    <a href="https://www.instagram.com/thetippingpoint_coffee/" target="_blank" rel="noopener">@thetippingpoint_coffee</a>
+    <a href="https://www.instagram.com/thetippingpointstore/" target="_blank" rel="noopener">@thetippingpointstore</a>
+  </div>
+  <p class="fine">Photos and quotes from Instagram posts by David and the people credited beside each image. adidas and Adistar are trademarks of adidas AG.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Chapter menu: image follows the cursor (pointer devices only)
+  const peek = document.querySelector('.peek');
+  if (matchMedia('(hover:hover)').matches) {
+    document.querySelectorAll('.menu a[data-peek]').forEach(a => {
+      a.addEventListener('mouseenter', () => { peek.src = a.dataset.peek; peek.style.opacity = 1; });
+      a.addEventListener('mouseleave', () => { peek.style.opacity = 0; });
+    });
+    addEventListener('mousemove', e => {
+      peek.style.transform = `translate(${e.clientX + 24}px, ${e.clientY - 150}px) rotate(${(e.clientX / innerWidth - .5) * 10}deg)`;
+    });
+  }
+
+
+  // Drinks menu: pick a drink, the photo swaps
+  const shot = document.querySelector('.drink-shot img'), shotCredit = document.querySelector('.drink-shot figcaption');
+  document.querySelectorAll('.drinks button').forEach(b => {
+    const pick = () => {
+      document.querySelectorAll('.drinks button').forEach(x => x.setAttribute('aria-pressed', x === b));
+      if (shot.getAttribute('src') === b.dataset.img) return;
+      shot.src = b.dataset.img; shot.alt = b.dataset.alt; shotCredit.textContent = b.dataset.credit;
+      if (window.gsap && !reduce) gsap.fromTo(shot, { opacity: 0, scale: 1.06, rotate: -2 }, { opacity: 1, scale: 1, rotate: 0, duration: .6, ease: 'expo.out' });
+    };
+    b.addEventListener('click', pick);
+    if (matchMedia('(hover:hover)').matches) b.addEventListener('mouseenter', pick);
+  });
+
+  if (reduce || !window.gsap) return; // content is fully visible without the motion below
+  gsap.registerPlugin(ScrollTrigger);
+
+  // The one orchestrated moment: hero load
+  gsap.timeline({ defaults: { ease: 'expo.out' } })
+    .from('.hero h1 .line', { yPercent: 110, opacity: 0, duration: 1.3, stagger: .15 })
+    .from('.chrome', { scale: .6, rotate: -25, opacity: 0, duration: 1.6 }, '-=1')
+    .from('.hero-side p', { y: 20, opacity: 0, duration: .9, stagger: .1 }, '-=1.1');
+
+  // Chrome logo leans toward the cursor
+  const chrome = document.querySelector('.chrome');
+  addEventListener('mousemove', e => {
+    gsap.to(chrome, { rotateY: (e.clientX / innerWidth - .5) * 24, rotateX: -(e.clientY / innerHeight - .5) * 18, transformPerspective: 800, duration: .8, ease: 'power3.out' });
+  });
+
+  const mm = gsap.matchMedia();
+  // Desktop: vertical scroll drives the Cactus Flower track sideways
+  mm.add('(min-width: 900px)', () => {
+    const track = document.querySelector('.track');
+    document.documentElement.classList.add('js-pin');
+    track.style.overflow = 'visible';
+    const dist = () => track.scrollWidth - innerWidth;
+    gsap.to(track, {
+      x: () => -dist(), ease: 'none',
+      scrollTrigger: { trigger: '.track-outer', start: 'center center', end: () => '+=' + dist(), pin: true, scrub: .6, invalidateOnRefresh: true }
+    });
+    return () => { document.documentElement.classList.remove('js-pin'); track.style.overflow = ''; };
+  });
+
+  // Cap spins a little as it passes
+  gsap.fromTo('.cap', { rotate: -12 }, { rotate: 10, ease: 'none', scrollTrigger: { trigger: '#hats', start: 'top bottom', end: 'bottom top', scrub: true } });
+  // Truck photo drifts slower than the page
+  gsap.to('.trail-hero img', { yPercent: 12, ease: 'none', scrollTrigger: { trigger: '.trail-hero', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+  // ---- After the adidas section ----
+  // Headings: letters tumble into place
+  const split = el => {
+    const t = el.textContent.trim(); el.setAttribute('aria-label', t);
+    el.innerHTML = t.split(' ').map(w => '<span class="w" aria-hidden="true">' + [...w].map(c => '<span class="c">' + c.replace('&', '&amp;') + '</span>').join('') + '</span>').join(' ');
+    return el.querySelectorAll('.c');
+  };
+  document.querySelectorAll('.menu h2, .chapter h2, .ride h3, .bar h3').forEach(h => {
+    gsap.from(split(h), { yPercent: 110, rotate: () => gsap.utils.random(-30, 30), opacity: 0, duration: .9, ease: 'back.out(1.7)', stagger: .025, scrollTrigger: { trigger: h, start: 'top 88%' } });
+  });
+  // Menu rows sweep in
+  gsap.from('.menu li', { xPercent: -10, opacity: 0, duration: .9, ease: 'expo.out', stagger: .08, scrollTrigger: { trigger: '.menu ol', start: 'top 80%' } });
+  // Photos wipe open from the bottom
+  const wipe = '.brew img, .kicks-grid img, .ride-grid img';
+  gsap.set(wipe, { clipPath: 'inset(100% 0% 0% 0% round 12px)' });
+  ScrollTrigger.batch(wipe, { start: 'top 90%', once: true, onEnter: b => gsap.to(b, { clipPath: 'inset(0% 0% 0% 0% round 12px)', duration: 1.1, ease: 'expo.inOut', stagger: .1 }) });
+  // Caps, food shots and reels drop in like they're being hung on the wall
+  const rise = '.wall li, .strip figure, .es, .timeline li, .drinks li';
+  gsap.set(rise, { opacity: 0, y: 70 });
+  ScrollTrigger.batch(rise, { start: 'top 92%', once: true, onEnter: b => gsap.fromTo(b, { rotate: () => gsap.utils.random(-6, 6) }, { opacity: 1, y: 0, rotate: 0, duration: 1, ease: 'expo.out', stagger: .07 }) });
+  // "Rides" grows as the truck comes into view
+  gsap.from('#rides-title', { scale: 1.5, transformOrigin: 'left bottom', ease: 'none', scrollTrigger: { trigger: '.trail-hero', start: 'top bottom', end: 'center center', scrub: true } });
+  // 2006 counts up to 2026, the bloom turns
+  const yr = { v: 2006 }, count = document.querySelector('.count');
+  gsap.to(yr, { v: 2026, duration: 2.2, ease: 'power2.out', snap: { v: 1 }, onUpdate: () => count.textContent = yr.v, scrollTrigger: { trigger: '.legacy', start: 'top 70%' } });
+  gsap.fromTo('.legacy img', { rotate: -10, scale: .9 }, { rotate: 6, scale: 1, ease: 'none', scrollTrigger: { trigger: '.legacy', start: 'top bottom', end: 'bottom top', scrub: true } });
+  // Footer sign-off slides up
+  gsap.from('footer.site .display', { y: 60, opacity: 0, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: 'footer.site', start: 'top 85%' } });
+})();
+</script>
+</body>
+</html>

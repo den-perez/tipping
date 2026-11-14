@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "buried-raster",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-14T07:29:56.201Z",
+        "reason": "Claude: .peek is the menu hover preview, opacity 0 until hover by design"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-14T07:30:06.110Z",
+        "reason": "Claude: full-bleed sections inset text via .wrap gutter (16-56px) and padding-block; tape overflows on purpose; verified in 1440px and 390px screenshots"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-14T07:30:06.139Z",
+        "reason": "Claude: tape reproduces the Slow Drip Tour packaging tape from the posts; stops under prefers-reduced-motion"
+      }
+    ]
+  }
+}

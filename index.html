@@ -188,6 +188,9 @@ blockquote footer{margin-top:.6rem}
 .history{list-style:none;padding-top:40px;padding-bottom:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(180px,100%),1fr));gap:28px clamp(16px,2vw,28px)}
 .history li{border-top:2px solid var(--yolk);padding-top:10px;font-size:.98rem;max-width:36ch}
 .history strong{display:block;font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1.1;color:var(--yolk);margin-bottom:4px}
+.hatclub{padding-top:56px}
+.mini{list-style:none;padding:0;margin-top:24px;max-width:960px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:clamp(10px,1.4vw,16px)}
+.mini img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
 .timeline{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px);counter-reset:stop}
 .timeline li{counter-increment:stop;position:relative;padding-top:56px;border-top:2px solid var(--yolk)}
 .timeline li::before{content:counter(stop);position:absolute;top:10px;left:0;font-family:var(--display);font-size:2rem;line-height:1;color:var(--yolk)}
@@ -520,6 +523,21 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
     <figure class="sq"><img src="img/store-proper-2.jpg" alt="Stack of cream and red Astros caps on a table" loading="lazy"><figcaption><strong class="yr">2023</strong> The 2.0 cap with @properhtx.</figcaption></figure>
     <figure class="sq"><img src="img/store-proper-3.jpg" alt="Grey cap with a cartoon patch and Astros logo" loading="lazy"><figcaption><strong class="yr">2024</strong> The 3.0, with the classic pin.</figcaption></figure>
   </div>
+  <div class="wrap hatclub">
+    <h3 class="wide">Hatclub weekend, 2023</h3>
+    <p class="lede">“Last week the homies @hatclub were in town, so you already know we had to act up all weekend with them.” <span class="credit">@thetippingpointstore</span></p>
+    <ul class="mini">
+      <li><img src="img/store-hatclub-1.jpg" alt="Line outside the storefront under signs for vintage, coffee and tattoo" loading="lazy" width="469" height="351"></li>
+      <li><img src="img/store-hatclub-2.jpg" alt="Two men showing off a new fitted cap" loading="lazy" width="468" height="349"></li>
+      <li><img src="img/store-hatclub-3.jpg" alt="Man in a black cap rapping into a mic outdoors" loading="lazy" width="468" height="349"></li>
+      <li><img src="img/store-hatclub-4.jpg" alt="Smiling man behind a table of caps" loading="lazy" width="468" height="349"></li>
+      <li><img src="img/store-hatclub-5.jpg" alt="Man unboxing fitted caps from a cardboard box" loading="lazy" width="468" height="349"></li>
+      <li><img src="img/store-hatclub-6.jpg" alt="Two friends in fitted caps and jerseys" loading="lazy" width="1440" height="1078"></li>
+      <li><img src="img/store-hatclub-7.jpg" alt="Crowd walking along the sidewalk outside the shop" loading="lazy" width="468" height="349"></li>
+      <li><img src="img/store-hatclub-8.jpg" alt="Stack of Hat Club shopping bags on the pavement" loading="lazy" width="468" height="349"></li>
+      <li><img src="img/store-hatclub-9.jpg" alt="Man in a cap on a rooftop under a blue sky" loading="lazy" width="468" height="349"></li>
+    </ul>
+  </div>
 </section>
 
 <section class="legacy" aria-labelledby="legacy-title">
@@ -626,7 +644,7 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
   gsap.set(wipe, { clipPath: 'inset(100% 0% 0% 0% round 12px)' });
   ScrollTrigger.batch(wipe, { start: 'top 90%', once: true, onEnter: b => gsap.to(b, { clipPath: 'inset(0% 0% 0% 0% round 12px)', duration: 1.1, ease: 'expo.inOut', stagger: .1 }) });
   // Caps, food shots and reels drop in like they're being hung on the wall
-  const rise = '.wall li, .strip figure, .es, .timeline li, .history li, .drinks li';
+  const rise = '.wall li, .strip figure, .es, .timeline li, .history li, .mini li, .drinks li';
   gsap.set(rise, { opacity: 0, y: 70 });
   ScrollTrigger.batch(rise, { start: 'top 92%', once: true, onEnter: b => gsap.fromTo(b, { rotate: () => gsap.utils.random(-6, 6) }, { opacity: 1, y: 0, rotate: 0, duration: 1, ease: 'expo.out', stagger: .07 }) });
   // "Rides" grows as the truck comes into view

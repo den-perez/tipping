@@ -200,7 +200,13 @@ blockquote footer{margin-top:.6rem}
 .timeline img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
 .timeline figcaption{margin-top:10px;font-size:.98rem}
 .timeline strong{display:block;font-family:var(--display);font-weight:400;font-size:1.5rem;color:var(--crema)}
-@media (max-width:760px){.bar-grid,.timeline{grid-template-columns:1fr}.drink-shot{position:static;order:-1}}
+@media (max-width:760px){
+  .bar-grid,.timeline{grid-template-columns:1fr}
+  .bar-grid{gap:16px}
+  .drink-shot{order:-1;top:68px;z-index:3;background:var(--espresso);padding:8px 0 10px;margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter);box-shadow:0 14px 18px -12px rgba(0,0,0,.6)}
+  .drink-shot img{aspect-ratio:auto;height:min(34svh,300px);border-radius:12px}
+  .drink-shot figcaption{margin-top:4px}
+}
 
 /* ---------- legacy ---------- */
 .legacy{background:#000;color:var(--crema);padding-block:clamp(72px,10vw,140px);overflow:hidden}
@@ -274,6 +280,16 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
 #store .timeline li{border-color:var(--accent)}
 #store .timeline strong{color:var(--fg)}
 
+/* phone menu */
+.menu-btn{display:none;position:relative;z-index:1;background:var(--espresso);color:var(--crema);border:0;border-radius:999px;padding:.55rem 1.1rem;font:700 .95rem/1 var(--body);font-stretch:87%;cursor:pointer}
+.mark{position:relative;z-index:1}
+@media (max-width:760px){
+  .menu-btn:not([hidden]){display:inline-block}
+  .nav.open ul{display:grid;position:fixed;inset:0;align-content:start;gap:2px;margin:0;border-radius:0;padding:96px var(--gutter) 40px;background:var(--espresso);overflow-y:auto}
+  .nav.open ul a{display:block;padding:6px 0;font-family:var(--display);font-weight:400;font-stretch:100%;font-size:clamp(2.2rem,11vw,3rem);line-height:1.1}
+  .nav.open ul a:hover,.nav.open ul a:focus-visible{color:var(--cactus);text-decoration:none}
+  .nav.open ul li:nth-child(odd) a{color:var(--yolk)}
+}
 /* sideways rows: hint + arrows + edge fades */
 .strip-nav{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:32px}
 .strip-nav + .strip{padding-top:16px}
@@ -302,15 +318,16 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
 
 <nav class="nav" aria-label="Main">
   <a class="mark" href="#top">Tipping</a>
-  <ul>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-list" hidden>Menu</button>
+  <ul id="nav-list">
     <li><a href="#cactus-flower">adidas</a></li>
     <li><a href="#coffee">Coffee</a></li>
     <li><a href="#food">Food</a></li>
     <li><a href="#kicks">Kicks</a></li>
     <li><a href="#hats">Hats</a></li>
     <li><a href="#rides">Rides</a></li>
-    <li><a href="#store">Store</a></li>
     <li><a href="#videos">Watch</a></li>
+    <li><a href="#store">Store</a></li>
   </ul>
 </nav>
 
@@ -685,6 +702,20 @@ footer.site .display{font-size:clamp(2.4rem,6vw,5rem);color:var(--yolk);margin-b
     b.addEventListener('click', pick);
     if (matchMedia('(hover:hover)').matches) b.addEventListener('mouseenter', pick);
   });
+
+  // phone menu
+  const nav = document.querySelector('.nav'), menuBtn = nav.querySelector('.menu-btn');
+  menuBtn.hidden = false;
+  const setMenu = open => {
+    nav.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.textContent = open ? 'Close' : 'Menu';
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) nav.querySelector('#nav-list a').focus();
+  };
+  menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  nav.querySelectorAll('#nav-list a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); menuBtn.focus(); } });
 
   // sideways rows: hint, arrow buttons, edge fades and a one-time nudge
   const hover = matchMedia('(hover:hover)').matches;
